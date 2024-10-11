@@ -1,0 +1,36 @@
+{
+  "navigation": {
+    "home": "Home",
+    "swap": "Swap",
+    "profile": "Profile",
+    "balance": "Balance"
+  },
+  "header": {
+    "title": "Decentralized Networking Platform Play2earn And NFT Farming",
+    "typeDeps": "World Networking Defi",
+    "description": "NFT Network opens the endless possibilities to connects player daily from all over the world"
+  },
+  "banner": {
+    "invalidChainMessage": "You are connected through Invalid chain!",
+    "switchChain": "Switch to {{name}}"
+  },
+  "crowdNftSystem": "crow nft system",
+  "system": "system",
+  "nftAllocation": "nft allocation",
+  "percent": "percent",
+  "rankNetwork": "rank network",
+  "bnbPlan": "bnb plan",
+  "rankNft": "rank",
+  "activeDownline": "active downline",
+  "totalNftBuy": "total nft buy",
+  "leadershipBonus": "leadership bonus",
+  "matchingReward": "matching reward",
+  "matchingBonus": "matching bonus",
+  "maxFarm": "max farm",
+  "sponsor": "sponsor",
+  "connectWallet": "Connect Wallet",
+  "product": "Farm Level",
+  "gacha": "Gacha",
+  "buy": "Buy Now",
+  "farm": "Farm"
+}

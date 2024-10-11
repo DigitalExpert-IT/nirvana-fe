@@ -62,12 +62,12 @@ export const SubFooter: React.FC = () => {
           </Text>
           <UnorderedList listStyleType="none" marginStart="none" mb="20px">
             <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="https://twitter.com/nftntoken" target='_blank'>
+              <Link href="#" target='_blank'>
                 Twitter
               </Link>
             </ListItem>
             <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="https://t.me/nftnetworkglobal" target='_blank'>
+              <Link href="#" target='_blank'>
                 Telegram
               </Link>
             </ListItem>
@@ -110,7 +110,7 @@ export const SubFooter: React.FC = () => {
         <Box>
           <Image src="/nft-logo.svg" alt="logo footer" mt="15px" />
           <Text align="center" fontSize="xs" color="white" fontWeight="regular">
-            &copy; Copyright {new Date().getFullYear()} <br /> NFT NETWORK
+            &copy; Copyright {new Date().getFullYear()} <br /> CROWD
           </Text>
           <Box display="flex" justifyContent="center" mt="1rem">
             <FormControl w="3.5rem" display="flex">

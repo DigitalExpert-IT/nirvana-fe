@@ -108,7 +108,7 @@ export const SubFooter: React.FC = () => {
         w={{ xl: '23%', md: '30%', sm: '40%', base: '100%' }}
       >
         <Box>
-          <Image src="/nft-logo.svg" alt="logo footer" mt="15px" />
+          <Image src="/crowd1.svg" alt="logo footer" mt="15px" />
           <Text align="center" fontSize="xs" color="white" fontWeight="regular">
             &copy; Copyright {new Date().getFullYear()} <br /> CROWD
           </Text>

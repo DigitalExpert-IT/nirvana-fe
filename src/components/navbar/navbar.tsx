@@ -73,8 +73,8 @@ export const Navbar = () => {
             <MobileNav data={NAVIGATION} isOpen={isOpen} onClose={onClose} />
             <Link href="/">
               <AspectRatio
-                w={{ base: 200, lg: 250 }}
-                ratio={16 / 4}
+                w={{ base: 200, lg: 300 }}
+                ratio={11 / 2}
                 my={2}
                 mx={{ sm: "auto" }}
                 pos={{ base: "absolute", lg: "sticky" }}
@@ -83,11 +83,11 @@ export const Navbar = () => {
                 top={"-2"}
               >
                 <Image
-                  src="/nft-logo.svg"
+                  src="/crowd1.svg"
                   alt="logo-image"
-                  width={100}
+                  width={500}
                   loading="lazy"
-                  height={100}
+                  height={500}
                 />
               </AspectRatio>
             </Link>

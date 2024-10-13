@@ -4,3 +4,13 @@ export const BNB_ADDRESS = {
     "0x38": "",
     "0x61": "0x4d5d87370b04BC7C3835c6642b6123038b43c18b"
 }
+
+export const CRWD_ADDRESS = {
+    "0x38": "0x4d5d87370b04BC7C3835c6642b6123038b43c18b",
+    "0x61": "0x4d5d87370b04BC7C3835c6642b6123038b43c18b" //mock-up
+}
+
+export const NFT_ADDRESS = {
+    "0x38": "0x4d5d87370b04BC7C3835c6642b6123038b43c18b",
+    "0x61": "0x4d5d87370b04BC7C3835c6642b6123038b43c18b" //mock-up
+}

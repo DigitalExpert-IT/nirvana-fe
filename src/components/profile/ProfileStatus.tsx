@@ -1,48 +1,91 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { useBnbBalance } from 'hooks/contract/bnb';
-import {
-  ProfilePicture,
-} from './ProfilePicture';
-import { AddressText } from './AddressText';
+import React from "react";
+import { useTranslation } from "react-i18next";
+import { ProfilePicture } from "./ProfilePicture";
+import { AddressText } from "./AddressText";
 import {
   Stack,
   Box,
   Heading,
   Text,
   useMediaQuery,
-} from '@chakra-ui/react';
-import { useAddress } from '@thirdweb-dev/react';
+  Flex,
+  HStack,
+} from "@chakra-ui/react";
+import { useAddress, useBalance } from "@thirdweb-dev/react";
+import { CRWD_ADDRESS, BNB_ADDRESS, NFT_ADDRESS } from "constant/address";
+
+const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
 export const ProfileStatus = () => {
   const { t } = useTranslation();
-  const [isLarge] = useMediaQuery('(min-width: 800px)');
+  const crwdAddress = CRWD_ADDRESS[currentChainiId as "0x61"];
+  const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
+  const nftAddress = NFT_ADDRESS[currentChainiId as "0x61"];
+  const [isLarge] = useMediaQuery("(min-width: 800px)");
   const address = useAddress();
-  const {data: balance} = useBnbBalance();
+  const balances = useBalance();
+
   return (
-    <Stack direction={{ base: 'column', md: 'row' }}>
+    <Stack direction={{ base: "column", md: "row" }}>
       <Stack w="100%" alignItems="center" justify="center">
         <ProfilePicture address={address} position="relative" />
       </Stack>
-      <Box w="100%">
-        <Heading size="lg">{t("profile.my")}</Heading>
-        <AddressText
-          shortenAddress
-          boxProps={{
-            color: 'blue.500',
-            fontSize: 'sm',
-            mt: '0.5rem',
-          }}
-        >
-          {address ?? ''}
-        </AddressText>
-        <Text color="gray.500" fontSize="sm" mt="0.5rem">
-          {isLarge
-            ? `${t('profile.balance')} : ` + balance?.value
-            : `${t('profile.balance')} : ` + balance?.value
-        }
-        </Text>
-      </Box>
+      <Flex
+        minW={"100%"}
+        direction={{ base: "column", lg: "row" }}
+        justifyContent={{ lg: "space-between", base: "center" }}
+      >
+        <Box minW={"50%"}>
+          <Heading size="lg">{t("profile.my")}</Heading>
+          <Text color="gray.500" fontSize="sm" my={2}>
+            {isLarge
+              ? `${t("profile.balanceCrwd")} : ` + balances.data?.value
+              : `${t("profile.balanceCrwd")} : ` + balances.data?.value}
+          </Text>
+        </Box>
+
+        <Box minW="100%">
+          <HStack gap={"20%"}>
+            <Text>BNB {t("common.address")}</Text>
+            <AddressText
+              shortenAddress
+              boxProps={{
+                color: "blue.500",
+                fontSize: "sm",
+                mt: "0.5rem",
+              }}
+            >
+              {bnbAddress ?? ""}
+            </AddressText>
+          </HStack>
+          <HStack gap={"18%"}>
+            <Text>CRWD {t("common.address")}</Text>
+            <AddressText
+              shortenAddress
+              boxProps={{
+                color: "blue.500",
+                fontSize: "sm",
+                mt: "0.5rem",
+              }}
+            >
+              {crwdAddress ?? ""}
+            </AddressText>
+          </HStack>
+          <HStack gap={"20%"}>
+            <Text>NFT {t("common.address")}</Text>
+            <AddressText
+              shortenAddress
+              boxProps={{
+                color: "blue.500",
+                fontSize: "sm",
+                mt: "0.5rem",
+              }}
+            >
+              {nftAddress ?? ""}
+            </AddressText>
+          </HStack>
+        </Box>
+      </Flex>
     </Stack>
   );
 };

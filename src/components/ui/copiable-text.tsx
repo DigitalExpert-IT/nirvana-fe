@@ -1,11 +1,13 @@
 import { useEffect } from "react";
 import {
+  HStack,
   Text,
   TextProps,
   Tooltip,
   useClipboard,
   useToast,
 } from "@chakra-ui/react";
+import { CopyIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
 import { useScreen } from "hooks";
 
@@ -14,7 +16,7 @@ type Props = TextProps & {
 };
 
 export const CopiableText = (props: Props) => {
-  const { isMobileScreen } = useScreen();
+  const isMobileScreen = useScreen();
   const { value, children, ...rest } = props;
   const { onCopy, setValue, hasCopied } = useClipboard(value);
   const { t } = useTranslation();
@@ -39,17 +41,20 @@ export const CopiableText = (props: Props) => {
 
   return (
     <Tooltip label={label} placement="top" closeOnClick={false}>
-      <Text
-        display="inline"
-        _hover={{
-          fontWeight: "bold",
-        }}
-        {...rest}
-        cursor="pointer"
-        onClick={onCopy}
-      >
-        {children}
-      </Text>
+      <HStack>
+        <Text
+          display="inline"
+          _hover={{
+            fontWeight: "bold",
+          }}
+          {...rest}
+          cursor="pointer"
+          onClick={onCopy}
+        >
+          {children}
+        </Text>
+        <CopyIcon />
+      </HStack>
     </Tooltip>
   );
 };

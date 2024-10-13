@@ -14,6 +14,9 @@
     "invalidChainMessage": "You are connected through Invalid chain!",
     "switchChain": "Switch to {{name}}"
   },
+
+  "copy": "Copy",
+  "claim": "claim",
   "crowdNftSystem": "crow nft system",
   "system": "system",
   "nftAllocation": "nft allocation",
@@ -32,5 +35,8 @@
   "product": "Farm Level",
   "gacha": "Gacha",
   "buy": "Buy Now",
-  "farm": "Farm"
+  "farm": "Farm",
+  "farmReward": "Farm Matching",
+  "leaderReward": "Leadership Bonus",
+  "address": "Address"
 }

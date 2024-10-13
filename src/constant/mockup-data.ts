@@ -76,30 +76,40 @@ export const OWNED_NFT = [
     title: "1",
     price: "0",
     gacha: "0.5%",
+    mintedAt: new Date("2024-09-12"),
+    claimedAt: Date.now()
   },
   {
     id: 2,
     title: "2",
     price: "0",
     gacha: "0.5%",
+    mintedAt: new Date("2024-09-12"),
+    claimedAt: Date.now()
   },
   {
     id: 3,
     title: "3",
     price: "0",
     gacha: "0.5%",
+    mintedAt: new Date("2024-09-12"),
+    claimedAt: Date.now()
   },
   {
     id: 4,
     title: "4",
     price: "0",
     gacha: "0.5%",
+    mintedAt: new Date("2024-09-12"),
+    claimedAt: Date.now()
   },
   {
     id: 5,
     title: "5",
     price: "0",
     gacha: "0.5%",
+    mintedAt: new Date("2024-09-12"),
+    claimedAt: Date.now()
   },
 ];
 

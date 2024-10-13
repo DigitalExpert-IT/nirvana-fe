@@ -1,10 +1,12 @@
+import { useBalance } from "@thirdweb-dev/react"
 import { BNB_ADDRESS } from "constant/address";
-import { getActiveChain } from "lib/chain";
-import { useContract } from "@thirdweb-dev/react"
 
-const ACTIVE_CHAIN = getActiveChain() as "0x61";
+const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
-export const useBnbContract = () => {
-  const bnbContract = useContract(BNB_ADDRESS[ACTIVE_CHAIN])
-  return bnbContract;
+export const useBnbBalance = () => {
+  // const { bnbContract } = useBnbContract();
+  const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"]
+
+  const balance = useBalance(bnbAddress)
+  return balance;
 }

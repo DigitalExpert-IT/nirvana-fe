@@ -39,7 +39,7 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
       <DrawerContent bgColor="#212428">
         <DrawerCloseButton />
         <DrawerHeader justifyContent="center" display="flex">
-          <Heading fontSize="6xl">BullRun</Heading>
+          <Heading fontSize="6xl">CROWD</Heading>
         </DrawerHeader>
         <DrawerBody p="0">
           <Stack spacing="5">

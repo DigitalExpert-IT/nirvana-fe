@@ -75,7 +75,7 @@ export const RewardSection = () => {
 
       <Stack textAlign="center" gap={5} p={{ base: 10 }} zIndex={1}>
         <Text fontFamily={"Protest Strike, sans-serif"} fontSize="4xl">
-          {t("common.leaderReward")}
+          {t("common.rankReward")}
         </Text>
         <Heading
           fontWeight="bold"

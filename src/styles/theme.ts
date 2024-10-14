@@ -1,7 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
 import { tableTheme } from "./component/table";
+import "@fontsource/protest-strike"
 
 const theme = extendTheme({
+  fonts: {
+    heading: "Protest Strike, sans-serif"
+  },
   colors: {
     brand: {
       50: "#edf3f8",

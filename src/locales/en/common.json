@@ -16,11 +16,12 @@
   },
 
   "copy": "Copy",
+  "copied": "Copied!",
   "claim": "claim",
   "crowdNftSystem": "crow nft system",
   "system": "system",
   "nftAllocation": "nft allocation",
-  "level":"Level",
+  "level": "Level",
   "requirement": "requirement",
   "percent": "percent",
   "rankNetwork": "rank network",
@@ -41,5 +42,7 @@
   "farm": "Farm",
   "farmReward": "Farm Matching",
   "rankReward": "Rank (Global Omzet)",
-  "address": "Address"
+  "address": "Address",
+  "swap": "swap",
+  "max": "max"
 }

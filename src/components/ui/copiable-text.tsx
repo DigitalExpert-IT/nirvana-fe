@@ -7,7 +7,7 @@ import {
   useClipboard,
   useToast,
 } from "@chakra-ui/react";
-import { CopyIcon } from "@chakra-ui/icons";
+// import { CopyIcon } from "@chakra-ui/icons";
 import { useTranslation } from "react-i18next";
 import { useScreen } from "hooks";
 
@@ -53,7 +53,7 @@ export const CopiableText = (props: Props) => {
         >
           {children}
         </Text>
-        <CopyIcon />
+        {/* <CopyIcon /> */}
       </HStack>
     </Tooltip>
   );

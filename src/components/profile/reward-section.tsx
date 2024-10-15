@@ -7,8 +7,6 @@ export const RewardSection = () => {
   const { t } = useTranslation();
   const isMobileScreen = useScreen().isMobileScreen;
 
-  console.log("logger", isMobileScreen)
-
   return (
     <Flex
       position="relative"

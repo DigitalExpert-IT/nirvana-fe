@@ -1,6 +1,6 @@
 import { Container, Box } from "@chakra-ui/react";
 import { Layout } from "components/layout";
-import { Header, NftList, TableNetwork, TableRank } from "components/section";
+import { Header, NftList, TableFarmMatching, TableNetwork, TableRank } from "components/section";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
@@ -39,6 +39,14 @@ export default function Home() {
           pb="10rem"
         >
           <TableRank />
+        </Box>
+      </Box>
+      <Box bgGradient={"radial(#330066, #1d1d1b)"}>
+        <Box
+          bgGradient="linear(rgba(17,17,17,1), rgba(17,17,17,0.3),rgba(17,17,17,1))"
+          pb="10rem"
+        >
+          <TableFarmMatching />
         </Box>
       </Box>
     </Layout>

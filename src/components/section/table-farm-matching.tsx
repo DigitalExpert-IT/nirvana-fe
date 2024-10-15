@@ -1,17 +1,16 @@
 import React from "react";
 import { t } from "i18next";
-// import Image from "next/image";
 import { Trans } from "react-i18next";
 import { TableData } from "components/ui/table";
 import { MdOutlineDoubleArrow } from "react-icons/md";
 import { createColumnHelper } from "@tanstack/react-table";
-import { RANKNETWORK, IRankNetwork } from "constant";
+import { IFarmMatching, FARMMATCHING } from "constant";
 import { Heading, Text, Icon, Stack } from "@chakra-ui/react";
 
-const columnHelper = createColumnHelper<IRankNetwork>();
+const columnHelper = createColumnHelper<IFarmMatching>();
 
 const columns = [
-  columnHelper.accessor("rank", {
+  columnHelper.accessor("level", {
     cell: info => (
       <Stack
         direction="row"
@@ -34,64 +33,39 @@ const columns = [
         </Text>
       </Stack>
     ),
-    header: t("common.rankNft") ?? "",
+    header: t("common.level") ?? "",
   }),
 
-  columnHelper.accessor("activeDownline", {
+  columnHelper.accessor("percent", {
     cell: info => (
       <Text
         fontSize={{ base: "sm", md: "xl" }}
+        fontWeight="bold"
         textTransform="capitalize"
-        textAlign="left"
+        textAlign="center"
       >
         {info.getValue()}
       </Text>
     ),
-    header: t("common.activeDownline") ?? "",
+    header: t("common.percent") ?? "",
   }),
 
-  columnHelper.accessor("totalNftBuy", {
+  columnHelper.accessor("requirement", {
     cell: info => (
-      <Stack
-        direction="row"
-        w={{ base: 20, md: 20 }}
-        whiteSpace="pre-wrap"
-        justify="center"
+      <Text
+        fontSize={{ base: "sm", md: "xl" }}
+        fontWeight="bold"
+        textTransform="capitalize"
+        textAlign="center"
       >
-        <Text
-          fontSize={{ base: "sm", md: "xl" }}
-          textTransform="capitalize"
-          color="gray.300"
-        >
-          {info.getValue()}
-        </Text>
-      </Stack>
+        {info.getValue()}
+      </Text>
     ),
-    header: t("common.totalNftBuy") ?? "",
-  }),
-
-  columnHelper.accessor("leadershipBonus", {
-    cell: info => (
-      <Stack
-        direction="row"
-        w={{ base: 20, md: "10em" }}
-        whiteSpace="pre-wrap"
-        justify="center"
-      >
-        <Text
-          fontSize={{ base: "sm", md: "xl" }}
-          textTransform="capitalize"
-          color="gray.300"
-        >
-          {info.getValue()}
-        </Text>
-      </Stack>
-    ),
-    header: t("common.leadershipBonus") ?? "",
+    header: t("common.requirement") ?? "",
   }),
 ];
 
-export const TableNetwork = () => {
+export const TableFarmMatching = () => {
   return (
     <Stack
       textAlign="center"
@@ -106,7 +80,7 @@ export const TableNetwork = () => {
         textTransform="uppercase"
         pb={10}
         _after={{
-          content: `'${t("common.leadershipBonus")}'`,
+          content: `'${t("common.farmMatching")}'`,
           display: "block",
           textAlign: "center",
           alignSelf: "center",
@@ -118,10 +92,10 @@ export const TableNetwork = () => {
         }}
         fontSize={{ md: "6xl", base: "4xl" }}
       >
-        <Trans i18nKey="common.leadershipBonus" />
+        <Trans i18nKey="common.farmMatching" />
       </Heading>
       <TableData
-        data={RANKNETWORK}
+        data={FARMMATCHING}
         columns={columns}
         tableCustom={{
           variant: "variantCrowd",

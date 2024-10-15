@@ -41,7 +41,7 @@ export const RewardSection = () => {
         <Heading
           fontWeight="bold"
           color="black"
-          textShadow="0 0 5px rgba(255, 255, 255, 0.8), 0 0 4px rgba(255, 255, 255, 0.6)" // Glowing effect
+          textShadow="2px 2px 5px rgba(78, 251, 224, 0.5), -2px -2px 5px rgba(77, 176, 250, 0.6)"  // Glowing effect
         >
           {123435634634} CRWD
         </Heading>
@@ -80,7 +80,7 @@ export const RewardSection = () => {
         <Heading
           fontWeight="bold"
           color="black"
-          textShadow="0 0 5px rgba(255, 255, 255, 0.5), 0 0 4px rgba(255, 255, 255, 0.6)" // Glowing effect
+          textShadow="2px 2px 5px rgba(78, 251, 224, 0.5), -2px -2px 5px rgba(77, 176, 250, 0.6)"  // Glowing effect
         >
           {123435634634} CRWD
         </Heading>

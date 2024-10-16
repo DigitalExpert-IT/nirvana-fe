@@ -11,24 +11,35 @@ import {
   Flex,
   HStack,
 } from "@chakra-ui/react";
-import { useAddress, useBalance } from "@thirdweb-dev/react";
-import { CRWD_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
+import { useActiveAccount, useWalletBalance } from "thirdweb/react";
+import { CRWD_ADDRESS, BNB_ADDRESS, NFT_ADDRESS } from "constant/address";
+import { getActiveChain } from "lib/chain";
+import { createThirdwebClient } from "thirdweb";
 
 const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
+const CLIENT_ID = process.env.NEXT_PUBLIC_THIRDWEB || "0";
+const client = createThirdwebClient({
+  clientId: `${CLIENT_ID}`
+})
+const targetChain = getActiveChain();
 
 export const ProfileStatus = () => {
   const { t } = useTranslation();
-  const crwdAddress = CRWD_CONTRACT[currentChainiId as "0x61"];
+  const crwdAddress = CRWD_ADDRESS[currentChainiId as "0x61"];
   const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
-  const nftAddress = NFT_CONTRACT[currentChainiId as "0x61"];
+  const nftAddress = NFT_ADDRESS[currentChainiId as "0x61"];
   const [isLarge] = useMediaQuery("(min-width: 800px)");
-  const address = useAddress();
-  const balances = useBalance();
+  const address = useActiveAccount();
+  const {data} = useWalletBalance({
+    chain: targetChain,
+    address: address?.address,
+    client: client
+  });
 
   return (
     <Stack direction={{ base: "column", md: "row" }}>
       <Stack w="100%" alignItems="center" justify="center">
-        <ProfilePicture address={address} position="relative" />
+        <ProfilePicture address={address?.address} position="relative" />
       </Stack>
       <Flex
         minW={"100%"}
@@ -39,8 +50,8 @@ export const ProfileStatus = () => {
           <Heading size="lg">{t("profile.my")}</Heading>
           <Text color="gray.500" fontSize="sm" my={2}>
             {isLarge
-              ? `${t("profile.balanceCrwd")} : ` + balances.data?.value
-              : `${t("profile.balanceCrwd")} : ` + balances.data?.value}
+              ? `${t("profile.balanceCrwd")} : ` + data?.displayValue
+              : `${t("profile.balanceCrwd")} : ` + data?.displayValue}
           </Text>
         </Box>
 

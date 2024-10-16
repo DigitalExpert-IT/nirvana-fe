@@ -18,7 +18,7 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { IoCopyOutline } from "react-icons/io5";
 import { AiOutlineArrowRight } from "react-icons/ai";
-import { USDT_CONTRACT, CRWD_CONTRACT } from "constant/address";
+import { USDT_ADDRESS, CRWD_ADDRESS } from "constant/address";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { FormInput, FormSelect } from "components/form/form-utils";
 import { getCrwdRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
@@ -36,8 +36,8 @@ interface ISwapToken {
 
 export const FormSwap = () => {
   const { t } = useTranslation();
-  const addressCrowd = CRWD_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
-  const addressUsdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+  const addressCrowd = CRWD_ADDRESS[CURRENT_CHAIN_ID as "0x38"];
+  const addressUsdt = USDT_ADDRESS[CURRENT_CHAIN_ID as "0x38"];
   const [symbol, setSymbol] = useState(false);
   const [fee, setFee] = useState<BigNumber>(toBn("0", 18));
   const { handleSubmit, control, watch, getValues, setValue, resetField } =

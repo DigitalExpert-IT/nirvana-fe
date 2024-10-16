@@ -4,22 +4,22 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { getActiveChain } from "lib/chain";
 import { Text, Button, Box } from "@chakra-ui/react";
 import type { AppProps } from "next/app";
-import type { Chain } from "@thirdweb-dev/chains";
-import { ThirdwebProvider, coinbaseWallet, localWallet, metamaskWallet, safeWallet, trustWallet, useChain, useSwitchChain, useWallet, walletConnect } from "@thirdweb-dev/react";
+import { type Chain } from "thirdweb";
+import { ThirdwebProvider, useSwitchActiveWalletChain, useActiveWalletChain, useActiveWallet } from "thirdweb/react";
 import { t } from "i18next";
 
 const targetChain : Chain = getActiveChain();
 
 const ChainBanner = () => {
-  const chain = useChain();
-  const switchChain = useSwitchChain();
-  const wallet = useWallet();
+  const chain = useActiveWalletChain();
+  const switchChain = useSwitchActiveWalletChain();
+  const wallet = useActiveWallet();
   const isConnectThroughIncorrectChain =
-    wallet && chain && chain.chainId && chain?.chainId !== targetChain.chainId;
+    wallet && chain && chain.id && chain?.id !== targetChain.id;
 
     const handleSwitchChain = () => {
       try {
-        switchChain(targetChain?.chainId);
+        switchChain(targetChain);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (error) {}
     };
@@ -51,22 +51,10 @@ const ChainBanner = () => {
 }
 
 export default function App({ Component, pageProps }: AppProps) {
-  const CLIENT_ID = process.env.NEXT_PUBLIC_THIRDWEB || "0";
 
 
   return (
-    <ThirdwebProvider
-      supportedChains={[targetChain]}
-      supportedWallets={[
-        metamaskWallet(),
-        trustWallet(),
-        walletConnect(),
-        coinbaseWallet(),
-        safeWallet(),
-        localWallet(),
-      ]}
-      activeChain={targetChain}
-      clientId={CLIENT_ID}>
+    <ThirdwebProvider>
     <ChakraProvider theme={theme}>
       <Component {...pageProps} />
       <ChainBanner/>

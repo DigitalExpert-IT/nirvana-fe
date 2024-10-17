@@ -72,22 +72,22 @@ export const FARMMATCHING: Array<IFarmMatching> = [
   {
     level: "level 6",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT + Rare Rank"
   },
   {
     level: "level 7",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT + Rare Rank"
   },
   {
     level: "level 8",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT + Rare Rank"
   },
   {
     level: "level 9",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT + Rare Rank"
   },{
     level: "level 10",
     percent: "5%",

@@ -5,7 +5,7 @@ import { BigNumber } from "ethers";
 import { SWAP_CONTRACT } from "constant/address";
 import { useUSDTContract } from "./useUSDTContract";
 import { useSwapContract } from "./useSwapContract";
-import { useCrowdContract } from "./useCrowdContract";
+import { useCrowdTokenContract } from "./useCrowdTokenContract";
 import { CURRENT_CHAIN_ID, useAccountBalance } from "./useAccountBalance";
 
 export const useSwap = () => {
@@ -14,7 +14,7 @@ export const useSwap = () => {
     refetch: refetchCrowd,
     isInitialLoading: isLoadingCrowd,
     isRefetching: isRefetchingCrowd,
-  } = useCrowdContract();
+  } = useCrowdTokenContract();
   const {
     contract: usdt,
     refetch: refetchUSDT,

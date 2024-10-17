@@ -1,5 +1,5 @@
 import { useBalance } from "@thirdweb-dev/react";
-import { CRWD_CONTRACT, USDT_CONTRACT } from "constant/address";
+import { CRWDTOKEN_CONTRACT, USDT_CONTRACT } from "constant/address";
 export const CURRENT_CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID;
 
 export const useAccountBalance = () => {
@@ -8,7 +8,7 @@ export const useAccountBalance = () => {
   );
 
   const { data: balanceCRWD, isLoading: isLoadingCRWD } = useBalance(
-    CRWD_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
+    CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
   );
 
   return {

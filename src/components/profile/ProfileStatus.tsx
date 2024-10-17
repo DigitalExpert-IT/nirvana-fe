@@ -12,13 +12,13 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { useAddress, useBalance } from "@thirdweb-dev/react";
-import { CRWD_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
+import { CRWDNET_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
 
 const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
 export const ProfileStatus = () => {
   const { t } = useTranslation();
-  const crwdAddress = CRWD_CONTRACT[currentChainiId as "0x61"];
+  const crwdAddress = CRWDNET_CONTRACT[currentChainiId as "0x61"];
   const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
   const nftAddress = NFT_CONTRACT[currentChainiId as "0x61"];
   const [isLarge] = useMediaQuery("(min-width: 800px)");

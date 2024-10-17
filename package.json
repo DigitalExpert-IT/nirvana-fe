@@ -15,8 +15,7 @@
     "@emotion/styled": "^11.13.0",
     "@fontsource/protest-strike": "^5.1.0",
     "@types/lodash": "^4.17.10",
-    "add": "^2.0.6",
-    "luncswap-solidity": "^1.8.1",
+    "crowd-contract": "^1.0.0",
     "embla-carousel-autoplay": "^8.3.0",
     "embla-carousel-react": "^8.3.0",
     "ethers": "^5.7.2",
@@ -25,14 +24,15 @@
     "falcon-lite": "^1.5.0",
     "framer-motion": "^11.9.0",
     "lodash": "^4.17.21",
+    "luncswap-solidity": "^1.8.1",
     "next": "14.2.14",
     "pass-bullrun": "^1.4.0",
-    "valhalla-erc20": "^1.23.0 ",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
     "react-intersection-observer": "^9.13.1",
-    "react-jazzicon": "^1.0.4"
+    "react-jazzicon": "^1.0.4",
+    "valhalla-erc20": "^1.23.0 "
   },
   "devDependencies": {
     "@chakra-ui/anatomy": "^2.3.4",

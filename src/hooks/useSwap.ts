@@ -47,6 +47,7 @@ export const useSwap = () => {
     const allowance = await usdt.erc20.allowance(
       SWAP_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
     );
+
     if (balanceUSDT.value.lt(amount)) {
       throw {
         code: "NotEnoughBalance",

@@ -18,13 +18,12 @@ import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { IoCopyOutline } from "react-icons/io5";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import { useAccountBalance } from "hooks/useAccountBalance";
 import { USDT_CONTRACT, CRWDTOKEN_CONTRACT } from "constant/address";
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { ButtonConnectWrapper, CopiableText } from "components/ui";
 import { FormInput, FormSelect } from "components/form/form-utils";
 import { getCrwdRate, getUsdtRate, prettyBn, shortenAddress } from "utils";
-
-import { useAccountBalance } from "hooks/useAccountBalance";
-import { ButtonConnectWrapper, CopiableText } from "components/ui";
 
 export const CURRENT_CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID;
 
@@ -94,16 +93,11 @@ export const FormSwap = () => {
     _.debounce((field: string) => {
       const { amountTop, amountBottom, currency } = getValues();
       const value = field === "amountTop" ? amountTop : amountBottom;
-
-      // define what the top and bottom fields are
       const fieldTarget = field === "amountTop" ? "amountBottom" : "amountTop";
-
       let swapResult = "";
-
       if (!value) {
         setFee(toBn("0", 18));
       }
-
       let swapFee = toBn("0", 18);
 
       if (currency === "CROWD") {

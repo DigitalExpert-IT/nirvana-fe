@@ -4,3 +4,5 @@ export * from "./next-image";
 export * from "./copiable-text";
 export * from "./button-custom";
 export * from "./button-connect-wrapper";
+export * from "./modal-disclaimer";
+export * from "./form-input";

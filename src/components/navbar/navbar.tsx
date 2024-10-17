@@ -14,15 +14,18 @@ import {
   AspectRatio,
 } from "@chakra-ui/react";
 import WalletButton from "./wallet-button";
+import RegisterButton from "./register-button";
 // import { ButtonConnectWallet } from "components/button";
 
-const NavbarButtons = () => {
+export const NavbarButtons = () => {
   return (
     <Flex
-      flexDirection={{ base: "column", sm: "row" }}
+      flexDirection={{ base: "column", lg: "row" }}
+      alignItems={"center"}
       gap={{ base: 6, sm: 2 }}
       mt={{ base: 8, sm: "unset" }}
     >
+      <RegisterButton />
       <WalletButton />
     </Flex>
   );

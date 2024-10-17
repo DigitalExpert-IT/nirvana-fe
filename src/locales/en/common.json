@@ -14,7 +14,7 @@
     "invalidChainMessage": "You are connected through Invalid chain!",
     "switchChain": "Switch to {{name}}"
   },
-
+  "founder": "founder",
   "copy": "Copy",
   "copied": "Copied!",
   "claim": "claim",

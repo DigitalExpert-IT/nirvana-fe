@@ -1,0 +1,19 @@
+{
+  "required": "{{field}} is required!",
+  "address": "{{address}} is invalid address!",
+  "notOwnedNft": "You don't own any NFT",
+  "pleaseConnectWallet": "Please Connect Wallet",
+  "errorCode": {
+    "ACTION_REJECTED": "User Reject Transaction!",
+    "NotEnoughBalance": "Not Enough Balance",
+    "NotEnoughUsdtBalance": "Not Enough USDT Balances",
+    "TokenFrozen": "Token Frozen",
+    "NoReward": "No Rewards Yet",
+    "RegistrationRequired": "Registration Required",
+    "RankNotYetStart": "Rank Not Yet Start",
+    "MaxBuy": "Maximum Buy, Need More Rank To Buy NFT",
+    "RankStarted": "Can't buy at Rank Started",
+    "NotEnoughUSDTBalance": "Not Enough USDT Balances",
+    "FailedToClaim": "Failed To Claim"
+  }
+}

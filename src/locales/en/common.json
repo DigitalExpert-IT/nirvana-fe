@@ -15,6 +15,7 @@
     "switchChain": "Switch to {{name}}"
   },
   "register": "Register",
+  "founder": "founder",
   "copy": "Copy",
   "copied": "Copied!",
   "claim": "claim",

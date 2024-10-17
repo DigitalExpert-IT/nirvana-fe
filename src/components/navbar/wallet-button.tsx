@@ -14,18 +14,18 @@ const WalletButton = () => {
   if (address) return <ConnectWallet />;
 
   return (
-    <Button
-      as={"button"}
-      background={"#9321DD"}
-      color={"white"}
-      _hover={{ bg: "#61089c" }}
-      fontSize={"md"}
-      borderRadius={"50px"}
-      fontWeight={"400"}
-      onClick={() => openModal(true)}
-    >
-      {t("common.connectWallet")}
-    </Button>
+      <Button
+        as={"button"}
+        background={"#9321DD"}
+        color={"white"}
+        _hover={{ bg: "#61089c" }}
+        fontSize={"md"}
+        borderRadius={"50px"}
+        fontWeight={"400"}
+        onClick={() => openModal(true)}
+      >
+        {t("common.connectWallet")}
+      </Button>
   );
 };
 

@@ -19,6 +19,7 @@ import {
   Collapse,
   Heading,
 } from "@chakra-ui/react";
+import { NavbarButtons } from "./navbar";
 // import { useConnectionStatus } from "@thirdweb-dev/react";
 
 interface MobileDrawerProps {
@@ -111,7 +112,7 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
             h="30%"
             alignItems={"center"}
           >
-            {/* <ButtonConnectWallet direction="column" /> */}
+            <NavbarButtons/>
           </Stack>
         </DrawerBody>
       </DrawerContent>

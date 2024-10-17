@@ -6,6 +6,7 @@ export const useAccountBalance = () => {
   const { data: balanceUSDT, isLoading: isLoadingUSDT } = useBalance(
     USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
   );
+
   const { data: balanceCRWD, isLoading: isLoadingCRWD } = useBalance(
     CRWD_CONTRACT[CURRENT_CHAIN_ID as "0x38"]
   );

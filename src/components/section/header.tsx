@@ -9,6 +9,12 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import { Carousel } from "components/ui/carousel";
+import { CopiableText } from "components/ui";
+import { NFT_CONTRACT } from "constant/address";
+import { IoCopyOutline } from "react-icons/io5";
+import { shortenAddress } from "utils";
+import { CURRENT_CHAIN_ID } from "hooks/useAccountBalance";
+import { useScreen } from "hooks";
 
 interface HeaderProps {
   typeDaps: string;
@@ -17,6 +23,9 @@ interface HeaderProps {
 }
 
 export const Header: React.FC<HeaderProps> = props => {
+  const nftContract = NFT_CONTRACT[CURRENT_CHAIN_ID];
+  const { isMobileScreen } = useScreen();
+
   return (
     <Box>
       <Grid templateColumns="repeat(12,1fr)">
@@ -44,7 +53,7 @@ export const Header: React.FC<HeaderProps> = props => {
                 {props.description}
               </Text>
               <Box mt="3rem">
-                <Text>NFTN Contract Address</Text>
+                <Text>CROWD Contract Address</Text>
                 <Flex
                   border="1px"
                   borderColor="white"
@@ -58,6 +67,20 @@ export const Header: React.FC<HeaderProps> = props => {
                     px="1rem"
                   >
                     <Text>BEP20</Text>
+                  </Box>
+                  <Box w="full" px={2}>
+                    <CopiableText
+                      value={nftContract}
+                      w="full"
+                      display="flex"
+                      gap={2}
+                      alignItems="center"
+                    >
+                      {isMobileScreen
+                        ? shortenAddress(nftContract)
+                        : nftContract}
+                      <IoCopyOutline />
+                    </CopiableText>
                   </Box>
                 </Flex>
               </Box>

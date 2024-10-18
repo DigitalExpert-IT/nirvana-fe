@@ -53,7 +53,6 @@ export const CopiableText = (props: Props) => {
         >
           {children}
         </Text>
-        {/* <CopyIcon /> */}
       </HStack>
     </Tooltip>
   );

@@ -12,7 +12,7 @@ export const CRWDNET_CONTRACT = {
 
 export const CRWDTOKEN_CONTRACT = {
   "0x38": "",
-  "0x61": "0x9Fa4b9eaC32F5000277545Fe5e339A52e22aa594",
+  "0x61": "0x15B5F2c634b098FB7d625B39321418B4Db04B210",
 };
 
 export const NFT_CONTRACT = {
@@ -27,7 +27,7 @@ export const USDT_CONTRACT = {
 
 export const SWAP_CONTRACT = {
   "0x38": "",
-  "0x61": "0x14a873722e4C584d23cBB6cBe4872f28CC927E6A",
+  "0x61": "0xC5f081bCd9a2617938BA0C217Ac6AFd5D6A5eB33",
 };
 
 export const NFTFOUNDER_CONTRACT = {

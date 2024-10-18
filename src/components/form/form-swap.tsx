@@ -37,7 +37,9 @@ export const FormSwap = () => {
   const { t } = useTranslation();
   const addressCrowd = CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
   const addressUsdt = USDT_CONTRACT[CURRENT_CHAIN_ID as "0x38"];
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [symbol, setSymbol] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [fee, setFee] = useState<BigNumber>(toBn("0", 18));
   const { handleSubmit, control, watch, getValues, setValue, resetField } =
     useForm<ISwapToken>();
@@ -119,13 +121,9 @@ export const FormSwap = () => {
             setFee(swapFee);
           }
 
-          swapResult = fromBn(
-            getCrwdRate(value ? value : "0").sub(swapFee),
-            18
-          );
+          swapResult = fromBn(getCrwdRate(value ? value : "0"), 18);
         }
       }
-
       setValue(fieldTarget, swapResult);
     }, 200),
     []
@@ -221,7 +219,7 @@ export const FormSwap = () => {
               {t("common.max")}
             </Button>
           </HStack>
-          <Text
+          {/* <Text
             as={"span"}
             fontSize={"sm"}
             color={"whiteAlpha.700"}
@@ -231,7 +229,7 @@ export const FormSwap = () => {
               value: fromBn(fee, 18),
               symbol: symbol ? "USDT" : "CROWD",
             })}
-          </Text>
+          </Text> */}
 
           <Stack py={"2"} w={"full"}>
             <SimpleGrid

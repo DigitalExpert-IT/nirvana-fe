@@ -49,7 +49,7 @@ const Swap = () => {
           shadow={"none"}
           zIndex={"3"}
           mb="10rem"
-          p="2rem"
+          p={{ base: 0, md: "2rem" }}
         >
           <CardBody>
             <FormSwap />

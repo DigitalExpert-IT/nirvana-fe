@@ -180,6 +180,7 @@ export const FormSwap = () => {
                 px={"6"}
                 borderLeftRadius="lg"
                 zIndex={"3"}
+                color="white"
               >
                 {t("form.label.from")}
               </Text>
@@ -187,7 +188,7 @@ export const FormSwap = () => {
                 flex={1}
                 ml={"10"}
                 textAlign="center"
-                textColor={"white"}
+                textColor="white"
                 borderRadius={"3xl"}
                 bg="#091e2abd"
                 _focus={{
@@ -213,21 +214,11 @@ export const FormSwap = () => {
                 opacity: 0.6,
               }}
               onClick={inputMax}
+              color="white"
             >
               {t("common.max")}
             </Button>
           </HStack>
-          {/* <Text
-            as={"span"}
-            fontSize={"sm"}
-            color={"whiteAlpha.700"}
-            textAlign={"center"}
-          >
-            {t("form.helperText.fee", {
-              value: fromBn(fee, 18),
-              symbol: symbol ? "USDT" : "CROWD",
-            })}
-          </Text> */}
 
           <Stack py={"2"} w={"full"}>
             <SimpleGrid

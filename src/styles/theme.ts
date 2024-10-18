@@ -1,10 +1,10 @@
 import { extendTheme } from "@chakra-ui/react";
 import { tableTheme } from "./component/table";
-import "@fontsource/protest-strike"
+import "@fontsource/protest-strike";
 
 const theme = extendTheme({
   fonts: {
-    heading: "Protest Strike, sans-serif"
+    heading: "Protest Strike, sans-serif",
   },
   colors: {
     brand: {
@@ -49,7 +49,7 @@ const theme = extendTheme({
     global: {
       body: {
         bg: "#212428",
-        color: "white",
+        colors: "white",
       },
     },
   },

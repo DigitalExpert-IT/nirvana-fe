@@ -1,27 +1,24 @@
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import {
-  Button,
-  Stack,
-  Badge,
-  Box,
-  Center,
-  FormLabel,
-} from "@chakra-ui/react";
+import { Button, Stack, Badge, Box, Center, FormLabel } from "@chakra-ui/react";
 import { shortenAddress } from "utils";
 import { useRouter } from "next/router";
 import { useModal } from "@ebay/nice-modal-react";
 import { validateRequired, validateAddress } from "utils";
 import { CURRENT_CHAIN_ID, useAsyncCall, useUSDTContract } from "hooks";
-import { ButtonConnectWrapper, ModalDiscalimer, FormInput } from "components/ui";
+import {
+  ButtonConnectWrapper,
+  ModalDiscalimer,
+  FormInput,
+} from "components/ui";
 import { useAddress, useBalance, useContractWrite } from "@thirdweb-dev/react";
 import {
   NIL_ADDRESS,
   USDT_CONTRACT,
-  CRWD_CONTRACT,
+  CRWDTOKEN_CONTRACT,
 } from "constant/address";
-import { useNirvanaContract, useRegistrationFee } from "hooks/contract/crwd";
+import { useCrowdNetContract, useRegistrationFee } from "hooks/contract/crowd";
 import { BigNumber } from "ethers";
 
 type FormType = {
@@ -29,7 +26,7 @@ type FormType = {
 };
 
 export const FormRegister = () => {
-  const valhalla = useNirvanaContract();
+  const valhalla = useCrowdNetContract();
   const usdt = useUSDTContract();
   const address = useAddress() ?? NIL_ADDRESS;
   const balanceUsdt = useBalance(USDT_CONTRACT[CURRENT_CHAIN_ID]);
@@ -41,7 +38,7 @@ export const FormRegister = () => {
   const approveMutation = async () => {
     const allowance = (await usdt.contract?.call("allowance", [
       address,
-      CRWD_CONTRACT[CURRENT_CHAIN_ID],
+      CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID],
     ])) as BigNumber;
     if (!registrationFee.data) {
       return;
@@ -53,7 +50,7 @@ export const FormRegister = () => {
     }
     if (allowance.lt(registrationFee.data)) {
       await usdtApproval.mutateAsync({
-        args: [CRWD_CONTRACT[CURRENT_CHAIN_ID], registrationFee.data],
+        args: [CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID], registrationFee.data],
       });
     }
   };
@@ -122,9 +119,9 @@ export const FormRegister = () => {
         borderX={"none"}
         borderTop={"none"}
         _hover={{
-            _placeholder: {
-                color: "white"
-            },
+          _placeholder: {
+            color: "white",
+          },
           borderBottomColor: "brand.500",
           borderBottom: "2px",
         }}
@@ -133,8 +130,8 @@ export const FormRegister = () => {
           borderBottom: "2px",
           color: "white",
           _placeholder: {
-            color: "white"
-          }
+            color: "white",
+          },
         }}
       />
       <Center pt={"10"}>

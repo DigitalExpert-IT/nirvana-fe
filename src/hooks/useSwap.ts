@@ -5,7 +5,7 @@ import { BigNumber } from "ethers";
 import { SWAP_CONTRACT } from "constant/address";
 import { useUSDTContract } from "./useUSDTContract";
 import { useSwapContract } from "./useSwapContract";
-import { useCrowdTokenContract } from "./useCrowdTokenContract";
+import { useCrowdTokenContract } from "./contract/crowd/useCrowdTokenContract";
 import { CURRENT_CHAIN_ID, useAccountBalance } from "./useAccountBalance";
 
 export const useSwap = () => {

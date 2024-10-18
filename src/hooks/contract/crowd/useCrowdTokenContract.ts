@@ -1,4 +1,4 @@
-import { CURRENT_CHAIN_ID } from "./contract";
+import { CURRENT_CHAIN_ID } from "..";
 import { useContract } from "@thirdweb-dev/react";
 import { CRWDTOKEN_CONTRACT } from "constant/address";
 import crowd from "crowd-contract/artifacts/contracts/Crowd.sol/Crowd.json";

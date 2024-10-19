@@ -1,10 +1,14 @@
 import "locales";
+import ee from "ee";
+import { t } from "i18next";
 import theme from "styles/theme";
-import { ChakraProvider } from "@chakra-ui/react";
-import { getActiveChain } from "lib/chain";
-import { Text, Button, Box } from "@chakra-ui/react";
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
+import { getActiveChain } from "lib/chain";
+import { ChakraProvider } from "@chakra-ui/react";
 import type { Chain } from "@thirdweb-dev/chains";
+import { Text, Button, Box } from "@chakra-ui/react";
+import { useCrowdNetContract, useSwapContract } from "hooks";
 import {
   ThirdwebProvider,
   coinbaseWallet,
@@ -17,11 +21,6 @@ import {
   useWallet,
   walletConnect,
 } from "@thirdweb-dev/react";
-import { t } from "i18next";
-import { useEffect } from "react";
-import { useCrowdNetContract } from "hooks/contract/crowd";
-import ee from "ee";
-import { useSwapContract } from "hooks";
 
 const targetChain: Chain = getActiveChain();
 

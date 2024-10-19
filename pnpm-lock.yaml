@@ -27,8 +27,8 @@ importers:
         specifier: ^4.17.10
         version: 4.17.10
       crowd-contract:
-        specifier: ^1.0.0
-        version: 1.0.0(@ethersproject/bignumber@5.7.0)(typescript@5.6.2)
+        specifier: '^1.1.0 '
+        version: 1.1.0(@ethersproject/bignumber@5.7.0)(typescript@5.6.2)
       embla-carousel-autoplay:
         specifier: ^8.3.0
         version: 8.3.0(embla-carousel@8.3.0)
@@ -2953,8 +2953,8 @@ packages:
       uWebSockets.js:
         optional: true
 
-  crowd-contract@1.0.0:
-    resolution: {integrity: sha512-8OJj2ZbQREb6o4UShjq1UgqAoUWta70wxRH+toBxpBqCKPqR3mVCztMZts2eqFxlKkTSf0LRCngCEnA4uvhn4w==}
+  crowd-contract@1.1.0:
+    resolution: {integrity: sha512-VoPFlw5OUuf8kWRz9n0n/bfiOOpet5mw/FNk1s8HZ9iGjtL4dhOb7oe32j/XzYI5Mvgp+6onr/55Kq1MyGe0RQ==}
 
   crypto-browserify@3.12.0:
     resolution: {integrity: sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==}
@@ -11160,7 +11160,7 @@ snapshots:
 
   crossws@0.2.4: {}
 
-  crowd-contract@1.0.0(@ethersproject/bignumber@5.7.0)(typescript@5.6.2):
+  crowd-contract@1.1.0(@ethersproject/bignumber@5.7.0)(typescript@5.6.2):
     dependencies:
       '@openzeppelin/contracts': 4.9.6
       '@openzeppelin/contracts-upgradeable': 4.9.6

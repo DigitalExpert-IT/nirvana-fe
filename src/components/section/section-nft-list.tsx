@@ -1,10 +1,13 @@
 import React, { useState } from "react";
-import { Box, Spinner, Wrap, WrapItem } from "@chakra-ui/react";
 import { CardList } from "components/ui";
-import { DATA_NFT } from "constant/mockup-data";
+import { Box, Spinner, Wrap, WrapItem } from "@chakra-ui/react";
+import { useCardList } from "hooks";
+import { prettyBn } from "utils";
 
-export const NftList = () => {
+export const SectionNftList = () => {
   const [isLoading] = useState<boolean>(false);
+  const { data } = useCardList();
+
   return (
     <>
       {isLoading ? (
@@ -21,9 +24,13 @@ export const NftList = () => {
         py={10}
         mx={5}
       >
-        {DATA_NFT.map((e, idx) => (
+        {data.map((e, idx) => (
           <WrapItem w={{ md: "25%", sm: "45%", base: "100%" }} key={idx}>
-            <CardList title={e.title} price={e.price} id={idx} />
+            <CardList
+              title={e.id.toString()}
+              price={prettyBn(e.price, 18)}
+              id={Number(e.id)}
+            />
           </WrapItem>
         ))}
       </Wrap>

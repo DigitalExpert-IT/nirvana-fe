@@ -1,6 +1,12 @@
 import { Container, Box } from "@chakra-ui/react";
 import { Layout } from "components/layout";
-import { Header, NftList, TableFarmMatching, TableNetwork, TableRank } from "components/section";
+import {
+  Header,
+  SectionNftList,
+  TableFarmMatching,
+  TableNetwork,
+  TableRank,
+} from "components/section";
 import { useTranslation } from "react-i18next";
 
 export default function Home() {
@@ -22,7 +28,7 @@ export default function Home() {
         backgroundSize="cover"
       >
         <Box bgGradient="linear(rgba(33,36,40,1), rgba(17,17,17,0.4),rgba(17,17,17,1))">
-          <NftList />
+          <SectionNftList />
         </Box>
       </Box>
       <Box backgroundImage="/bg-banner-section.webp" backgroundSize="cover">

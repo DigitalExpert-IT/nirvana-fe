@@ -1,2 +1,2 @@
-export * from "./useNftList";
+export * from "./useCardList";
 export * from "./useNftCrowdContract";

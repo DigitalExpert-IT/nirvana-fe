@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Stack, Text, Image, Flex } from "@chakra-ui/react";
-import { CARD_IMAGE_MAP } from "constant/image";
-import { ButtonCustom } from "./button-custom";
 import { t } from "i18next";
+import { ButtonCustom } from "./button-custom";
+import { CARD_IMAGE_MAP } from "constant/image";
+import { Box, Stack, Text, Image, Flex } from "@chakra-ui/react";
+import { useAsyncCall, useCardList } from "hooks";
 
 interface CardListNFTProps {
   title: string;
@@ -12,6 +13,14 @@ interface CardListNFTProps {
 }
 
 export const CardList: React.FC<CardListNFTProps> = props => {
+  const { buy } = useCardList();
+
+  const { exec, isLoading } = useAsyncCall(buy);
+
+  const handleBuy = () => {
+    exec(props.id);
+  };
+
   return (
     <Box rounded="xl" overflow="hidden">
       <Stack
@@ -106,6 +115,8 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                     size="sm"
                     borderRadius="lg"
                     boxShadow={"0px 0px 15px rgba(145, 83, 246, 0.5)"}
+                    onClick={() => handleBuy()}
+                    isLoading={isLoading}
                   >
                     <Text color={"yellow"}>{t("common.buy")}</Text>
                   </ButtonCustom>

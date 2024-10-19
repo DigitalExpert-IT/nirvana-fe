@@ -6,58 +6,25 @@ import { shortenAddress } from "utils";
 import { useRouter } from "next/router";
 import { useModal } from "@ebay/nice-modal-react";
 import { validateRequired, validateAddress } from "utils";
-import { CURRENT_CHAIN_ID, useAsyncCall, useUSDTContract } from "hooks";
-import {
-  ButtonConnectWrapper,
-  ModalDiscalimer,
-  FormInput,
-} from "components/ui";
-import { useAddress, useBalance, useContractWrite } from "@thirdweb-dev/react";
+import { useAsyncCall } from "hooks";
+import { ButtonConnectWrapper, ModalDiscalimer, FormInput } from "components/ui";
+import { useAddress } from "@thirdweb-dev/react";
 import {
   NIL_ADDRESS,
-  USDT_CONTRACT,
-  CRWDTOKEN_CONTRACT,
 } from "constant/address";
-import { useCrowdNetContract, useRegistrationFee } from "hooks/contract/crowd";
-import { BigNumber } from "ethers";
+import { useRegister } from "hooks/contract/crowd";
 
 type FormType = {
   referrer: string;
 };
 
 export const FormRegister = () => {
-  const valhalla = useCrowdNetContract();
-  const usdt = useUSDTContract();
   const address = useAddress() ?? NIL_ADDRESS;
-  const balanceUsdt = useBalance(USDT_CONTRACT[CURRENT_CHAIN_ID]);
   const { t } = useTranslation();
-  const valhallaRegister = useContractWrite(valhalla.contract, "register");
-  const usdtApproval = useContractWrite(usdt.contract, "approve");
-  const registrationFee = useRegistrationFee();
+  const {mutateAsync, isLoading} = useRegister();
 
-  const approveMutation = async () => {
-    const allowance = (await usdt.contract?.call("allowance", [
-      address,
-      CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID],
-    ])) as BigNumber;
-    if (!registrationFee.data) {
-      return;
-    }
-    if (balanceUsdt.data?.value.lt(registrationFee?.data)) {
-      throw {
-        code: "NotEnoughBalance",
-      };
-    }
-    if (allowance.lt(registrationFee.data)) {
-      await usdtApproval.mutateAsync({
-        args: [CRWDTOKEN_CONTRACT[CURRENT_CHAIN_ID], registrationFee.data],
-      });
-    }
-  };
-
-  const approve = useAsyncCall(approveMutation);
   const register = useAsyncCall(
-    valhallaRegister.mutateAsync,
+    mutateAsync,
     t("form.message.registrationSuccess"),
     () => router.replace("/profile")
   );
@@ -67,11 +34,10 @@ export const FormRegister = () => {
 
   useEffect(() => {
     setValue("referrer", router.query.ref as string);
-  }, [router.query.ref]);
+  }, [router.query.ref, setValue]);
 
   const onSubmit = handleSubmit(data => {
     disclaimerModal.show().then(async () => {
-      await approve.exec();
       await register.exec({
         args: [data.referrer],
       });
@@ -137,7 +103,7 @@ export const FormRegister = () => {
       <Center pt={"10"}>
         <ButtonConnectWrapper type="submit" border={"1px"} px={"16"}>
           <Button
-            isLoading={register.isLoading || registrationFee.isLoading}
+            isLoading={isLoading}
             type="submit"
             border={"1px"}
             px={"16"}

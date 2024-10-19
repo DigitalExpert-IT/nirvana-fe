@@ -13,6 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAddress, useBalance } from "@thirdweb-dev/react";
 import { CRWDNET_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
+import { useGetAccount } from "hooks/contract/crowd";
 
 const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
@@ -22,13 +23,14 @@ export const ProfileStatus = () => {
   const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
   const nftAddress = NFT_CONTRACT[currentChainiId as "0x61"];
   const [isLarge] = useMediaQuery("(min-width: 800px)");
+  const {rank} = useGetAccount();
   const address = useAddress();
   const balances = useBalance();
 
   return (
     <Stack direction={{ base: "column", md: "row" }}>
       <Stack w="100%" alignItems="center" justify="center">
-        <ProfilePicture address={address} position="relative" />
+        <ProfilePicture address={address} rank={rank} position="relative" />
       </Stack>
       <Flex
         minW={"100%"}

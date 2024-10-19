@@ -26,6 +26,12 @@ importers:
       '@types/lodash':
         specifier: ^4.17.10
         version: 4.17.10
+<<<<<<< Updated upstream
+=======
+      add:
+        specifier: ^2.0.6
+        version: 2.0.6
+>>>>>>> Stashed changes
       crowd-contract:
         specifier: '^1.1.0 '
         version: 1.1.0(@ethersproject/bignumber@5.7.0)(typescript@5.6.2)
@@ -77,9 +83,6 @@ importers:
       react-jazzicon:
         specifier: ^1.0.4
         version: 1.0.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      valhalla-erc20:
-        specifier: '^1.23.0 '
-        version: 1.23.0(@ethersproject/bignumber@5.7.0)
     devDependencies:
       '@chakra-ui/anatomy':
         specifier: ^2.3.4
@@ -6280,9 +6283,6 @@ packages:
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
-
-  valhalla-erc20@1.23.0:
-    resolution: {integrity: sha512-FOv48Yljcauh8RjCLvDfmVilZLNrwQdLJSPkfGRF9g8LoEC/LvEe4ohmzmXhfKdIAQRD1igC7Dw1YCePfHSmvw==}
 
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
@@ -15020,21 +15020,6 @@ snapshots:
   uuid@9.0.1: {}
 
   v8-compile-cache-lib@3.0.1: {}
-
-  valhalla-erc20@1.23.0(@ethersproject/bignumber@5.7.0):
-    dependencies:
-      '@openzeppelin/contracts': 4.9.6
-      '@openzeppelin/contracts-upgradeable': 4.9.6
-      '@uniswap/v2-periphery': 1.1.0-beta.0
-      dotenv: 16.4.5
-      evm-bn: 1.1.2(@ethersproject/bignumber@5.7.0)
-      jsonexport: 3.2.0
-      sqlite: 4.2.1
-      sqlite3: 5.1.7
-    transitivePeerDependencies:
-      - '@ethersproject/bignumber'
-      - bluebird
-      - supports-color
 
   validate-npm-package-license@3.0.4:
     dependencies:

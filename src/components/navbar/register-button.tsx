@@ -1,40 +1,41 @@
 import { Button, Box } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { useGetAccount } from "hooks/contract/crowd";
+import { useAddress } from "@thirdweb-dev/react";
 
 const RegisterButton = () => {
   const { t } = useTranslation();
+  const { data, error } = useGetAccount(); 
+  const address = useAddress();
   const router = useRouter();
-//   const address = useAddress(); get address to check to check is registered or not
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [isRegistered, setIsRegistered] = useState<boolean>(false) //mock output for registered testing
+  
+  console.log("Account Data:", data);  
 
-    const handleNavigate = () => {
-        router.push("/register")
-    }
+  const handleNavigate = () => {
+    router.push("/register");
+  };
 
   return (
     <Box>
-        {!isRegistered ? 
+      
+      {data == null || !error || address == undefined ? (
         <Button
-            as={"button"}
-            background={"#9321DD"}
-            color={"white"}
-            _hover={{ bg: "#61089c" }}
-            fontSize={"md"}
-            borderRadius={"50px"}
-            fontWeight={"400"}
-            onClick={() => handleNavigate()}
+          background={"#9321DD"}
+          color={"white"}
+          _hover={{ bg: "#61089c" }}
+          fontSize={"md"}
+          borderRadius={"50px"}
+          fontWeight={"400"}
+          onClick={handleNavigate}  
         >
-            {t("common.register")}
+          {t("common.register")}
         </Button>
-        : ""}
-     </Box>
+      ) : (
+        ""
+      )}
+    </Box>
   );
 };
 
 export default RegisterButton;
-
-
-

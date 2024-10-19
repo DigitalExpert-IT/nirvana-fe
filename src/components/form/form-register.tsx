@@ -12,7 +12,7 @@ import { useAddress } from "@thirdweb-dev/react";
 import {
   NIL_ADDRESS,
 } from "constant/address";
-import { useRegister } from "hooks/contract/crowd";
+import { useRegister } from "hooks";
 
 type FormType = {
   referrer: string;

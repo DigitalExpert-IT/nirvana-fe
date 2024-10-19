@@ -1,6 +1,5 @@
 import { Stack, Heading, Text } from "@chakra-ui/react"
 import { ButtonCustom } from "components/ui"
-import { fromBn } from "evm-bn"
 import { t } from "i18next"
 
 interface RewardType {

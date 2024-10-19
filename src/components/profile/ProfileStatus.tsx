@@ -13,7 +13,7 @@ import {
 } from "@chakra-ui/react";
 import { useAddress, useBalance } from "@thirdweb-dev/react";
 import { CRWDNET_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
-import { useGetAccount } from "hooks/contract/crowd";
+import { useGetAccount } from "hooks";
 
 const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 

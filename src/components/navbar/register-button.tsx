@@ -1,7 +1,7 @@
 import { Button, Box } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { useRouter } from "next/router";
-import { useGetAccount } from "hooks/contract/crowd";
+import { useGetAccount } from "hooks";
 import { useAddress } from "@thirdweb-dev/react";
 
 const RegisterButton = () => {
@@ -9,8 +9,6 @@ const RegisterButton = () => {
   const { data, error } = useGetAccount(); 
   const address = useAddress();
   const router = useRouter();
-  
-  console.log("Account Data:", data);  
 
   const handleNavigate = () => {
     router.push("/register");

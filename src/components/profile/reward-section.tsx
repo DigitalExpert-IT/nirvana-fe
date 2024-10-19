@@ -2,14 +2,14 @@ import { Divider, Flex, Heading, Stack, Text, Box } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { ButtonCustom } from "components/ui";
 import { useAsyncCall, useScreen } from "hooks";
-import { useGetAccount } from "hooks/contract/crowd";
+import { useGetAccount } from "hooks";
 import { fromBn } from "evm-bn";
 import { useContractWrite } from "@thirdweb-dev/react";
-import { useNFTContract } from "hooks/contract/crowd/useNFTContract";
+import { useNftCrowdContract } from "hooks";
 
 export const RewardSection = () => {
   const { t } = useTranslation();
-  const nftContract = useNFTContract()
+  const {contract: nftContract} = useNftCrowdContract()
   const {rank, sponsor, farmMatching} = useGetAccount();
   const {mutateAsync: claimFarm, isLoading: farmLoading} = useContractWrite(nftContract, "claimMatchingReward")
   const {mutateAsync: claimSponsor, isLoading: sponsorLoading} = useContractWrite(nftContract, "claimSponsorReward")
@@ -73,7 +73,7 @@ export const RewardSection = () => {
           size="md"
           borderRadius="lg"
           isLoading={farmLoading}
-          onClick={() => sponsorClaim.exec({})}
+          onClick={() => matchingBonus.exec({})}
           boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
         >
           <Text color="yellow">{t("common.claim")}</Text>
@@ -113,7 +113,7 @@ export const RewardSection = () => {
           typeButton={2}
           size="md"
           isLoading={rankLoading}
-          onClick={() => matchingBonus.exec({})}
+          onClick={() => claimRankBonus.exec({})}
           borderRadius="lg"
           boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
         >

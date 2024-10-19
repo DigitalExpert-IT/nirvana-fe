@@ -1,16 +1,5 @@
 import "locales";
-<<<<<<< Updated upstream
 import ee from "ee";
-=======
-import theme from "styles/theme";
-import { ChakraProvider } from "@chakra-ui/react";
-import { getActiveChain } from "lib/chain";
-import { Text, Button, Box } from "@chakra-ui/react";
-import type { AppProps } from "next/app";
-import type { Chain } from "@thirdweb-dev/chains";
-import NiceModal from '@ebay/nice-modal-react';
-import { ThirdwebProvider, coinbaseWallet, localWallet, metamaskWallet, safeWallet, trustWallet, useChain, useSwitchChain, useWallet, walletConnect } from "@thirdweb-dev/react";
->>>>>>> Stashed changes
 import { t } from "i18next";
 import theme from "styles/theme";
 import { useEffect } from "react";

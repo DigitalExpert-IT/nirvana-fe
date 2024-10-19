@@ -17,7 +17,7 @@ export const CRWDTOKEN_CONTRACT = {
 
 export const NFT_CONTRACT = {
   "0x38": "",
-  "0x61": "0x76B3a7E604Ae6C9De509E0925697af65bdD7d6a4",
+  "0x61": "0xCd2350173696a4B1960339195a23cd17B2408b74",
 };
 
 export const USDT_CONTRACT = {

@@ -187,6 +187,7 @@ export const FormSwap = () => {
               <FormInput
                 flex={1}
                 ml={"10"}
+                border="none"
                 textAlign="center"
                 textColor="white"
                 borderRadius={"3xl"}
@@ -230,14 +231,17 @@ export const FormSwap = () => {
               overflow={"hidden"}
               pos={"relative"}
             >
-              <Text fontWeight={"bold"}>{t("form.label.swap")}</Text>
+              <Text fontWeight={"bold"} color="white">
+                {t("form.label.swap")}
+              </Text>
               <Icon pos={"absolute"} zIndex={"3"} fontSize={"xl"} color="white">
                 <AiOutlineArrowRight />
               </Icon>
               <FormSelect
-                bg={"#091e2abd"}
-                textAlign={"center"}
+                bg="#091e2abd"
+                textAlign="center"
                 control={control}
+                border="none"
                 _focus={{
                   border: "none",
                   bg: "gray.700",
@@ -275,6 +279,7 @@ export const FormSwap = () => {
                 borderRadius={"md"}
                 bg="#091E2A"
                 zIndex={"3"}
+                color="white"
               >
                 {t("form.label.to")}
               </Text>
@@ -293,6 +298,7 @@ export const FormSwap = () => {
                   bg: "whiteAlpha.300",
                 }}
                 control={control}
+                border="none"
                 onKeyUp={() => handleChangeInput("amountBottom")}
                 name="amountBottom"
                 placeholder={"0.0"}
@@ -375,13 +381,16 @@ export const FormSwap = () => {
               p="3"
               justifyContent="space-between"
             >
-              <Text fontSize="sm">Import CROWD</Text>
+              <Text fontSize="sm" color="white">
+                Import CROWD
+              </Text>
               <Box display="flex" alignItems="center">
                 <CopiableText
                   value={addressCrowd}
                   display="flex"
                   alignItems="center"
                   gap="2"
+                  color="white"
                 >
                   {shortenAddress(addressCrowd)}
                   <IoCopyOutline />
@@ -424,13 +433,16 @@ export const FormSwap = () => {
               p="3"
               justifyContent="space-between"
             >
-              <Text fontSize="sm">Import USDT</Text>
+              <Text fontSize="sm" color="white">
+                Import USDT
+              </Text>
               <Box display="flex" alignItems="center">
                 <CopiableText
                   value={addressUsdt}
                   display="flex"
                   alignItems="center"
                   gap="2"
+                  color="white"
                 >
                   {shortenAddress(addressUsdt)}
                   <IoCopyOutline />

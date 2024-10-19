@@ -5,6 +5,7 @@ import {
   FormControl,
   FormHelperText,
   FormErrorMessage,
+  Text,
 } from "@chakra-ui/react";
 import {
   get,
@@ -30,7 +31,7 @@ type Props<T extends FieldValues, TName extends FieldPath<T>> = Omit<
   FormSelectProps;
 
 export const FormSelect = <T extends FieldValues, TName extends FieldPath<T>>(
-  props: Props<T, TName>,
+  props: Props<T, TName>
 ) => {
   const { errors } = useFormState({ control: props.control });
   const error: FieldError | null = get(errors, props.name);

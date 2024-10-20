@@ -1,21 +1,21 @@
 import { Mumbai, Polygon, BinanceTestnet, Binance } from "@thirdweb-dev/chains";
 
-const CURRENT_CHAIN_ID = (process.env.NEXT_PUBLIC_CHAIN_ID || "0x89") as "0x89";
+const CURRENT_CHAIN_ID = (process.env.NEXT_PUBLIC_CHAIN_ID || "0x61") as "0x61";
 
 type TChain = {
   chainId: number;
   chain: string;
   name: string;
-  testnet: true,
+  testnet: true;
   slug: string;
   shortName: string;
   nativeCurrency: {
     name: string;
     symbol: string;
     decimals: number;
-  },
+  };
   rpc: string[];
-}
+};
 
 const chainMap = {
   "0x13881": Mumbai,

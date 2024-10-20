@@ -234,11 +234,12 @@ export const FormSwap = () => {
               <Text fontWeight={"bold"} color="white">
                 {t("form.label.swap")}
               </Text>
-              <Icon pos={"absolute"} zIndex={"3"} fontSize={"xl"} color="white">
+              <Icon pos="absolute" zIndex="3" fontSize="xl" color="white">
                 <AiOutlineArrowRight />
               </Icon>
               <FormSelect
                 bg="#091e2abd"
+                textColor="white"
                 textAlign="center"
                 control={control}
                 border="none"

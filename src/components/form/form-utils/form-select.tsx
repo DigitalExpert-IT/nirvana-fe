@@ -46,7 +46,11 @@ export const FormSelect = <T extends FieldValues, TName extends FieldPath<T>>(
         render={({ field: { ...rest } }) => (
           <Select {...rest} defaultValue={props.defaultValue} {...props}>
             {props.option.map((e, i) => (
-              <option value={e.value} key={i}>
+              <option
+                value={e.value}
+                key={i}
+                style={{ background: "#091e2abd" }}
+              >
                 {e.label}
               </option>
             ))}

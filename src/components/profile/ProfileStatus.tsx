@@ -23,6 +23,7 @@ export const ProfileStatus = () => {
   const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
   const nftAddress = NFT_CONTRACT[currentChainiId as "0x61"];
   const [isLarge] = useMediaQuery("(min-width: 800px)");
+  const {data} = useGetAccount();
   const {rank} = useGetAccount();
   const address = useAddress();
   const balances = useBalance();
@@ -37,17 +38,22 @@ export const ProfileStatus = () => {
         direction={{ base: "column", lg: "row" }}
         justifyContent={{ lg: "space-between", base: "center" }}
       >
-        <Box minW={"50%"}>
+        <Box minW={"40%"}>
           <Heading size="lg">{t("profile.my")}</Heading>
           <Text color="gray.500" fontSize="sm" my={2}>
             {isLarge
               ? `${t("profile.balanceCrwd")} : ` + balances.data?.value
               : `${t("profile.balanceCrwd")} : ` + balances.data?.value}
           </Text>
+          <Text color="gray.500" fontSize="sm" my={2}>
+            {isLarge
+              ? `${t("profile.downline")} : ` + data?.totalDownline || 0
+              : `${t("profile.downline")} : ` + data?.totalDownline || 0}
+          </Text>
         </Box>
 
-        <Box minW="100%">
-          <HStack gap={"20%"}>
+        <Box minW="75%">
+          <HStack display={"flex"} justifyContent={"space-between"}>
             <Text>BNB {t("common.address")}</Text>
             <AddressText
               shortenAddress
@@ -60,7 +66,7 @@ export const ProfileStatus = () => {
               {bnbAddress ?? ""}
             </AddressText>
           </HStack>
-          <HStack gap={"18%"}>
+          <HStack display={"flex"} justifyContent={"space-between"}>
             <Text>CRWD {t("common.address")}</Text>
             <AddressText
               shortenAddress
@@ -73,7 +79,7 @@ export const ProfileStatus = () => {
               {crwdAddress ?? ""}
             </AddressText>
           </HStack>
-          <HStack gap={"20%"}>
+          <HStack display={"flex"} justifyContent={"space-between"}>
             <Text>NFT {t("common.address")}</Text>
             <AddressText
               shortenAddress

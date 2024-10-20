@@ -1,7 +1,7 @@
-import { Divider, Flex, Heading, Stack, Text, Box } from "@chakra-ui/react";
+import { Divider, Flex, Heading, Stack, Text, Box, useMediaQuery } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { ButtonCustom } from "components/ui";
-import { useAsyncCall, useScreen } from "hooks";
+import { useAsyncCall } from "hooks";
 import { useGetAccount } from "hooks";
 import { fromBn } from "evm-bn";
 import { useContractWrite } from "@thirdweb-dev/react";
@@ -11,10 +11,10 @@ export const RewardSection = () => {
   const { t } = useTranslation();
   const {contract: nftContract} = useNftCrowdContract()
   const {rank, sponsor, farmMatching} = useGetAccount();
+  const [isMobile] = useMediaQuery("(max-width: 800px)")
   const {mutateAsync: claimFarm, isLoading: farmLoading} = useContractWrite(nftContract, "claimMatchingReward")
   const {mutateAsync: claimSponsor, isLoading: sponsorLoading} = useContractWrite(nftContract, "claimSponsorReward")
   const {mutateAsync: claimRank, isLoading: rankLoading} = useContractWrite(nftContract, "claimRankReward")
-  const {isMobileScreen} = useScreen();
 
   const matchingBonus = useAsyncCall(
     claimFarm,
@@ -80,7 +80,7 @@ export const RewardSection = () => {
         </ButtonCustom>
       </Stack>
 
-      {isMobileScreen == true ? (
+      {isMobile == true ? (
         <Divider
           orientation="horizontal"
           minW="100%"
@@ -121,7 +121,7 @@ export const RewardSection = () => {
         </ButtonCustom>
       </Stack>
 
-      {isMobileScreen == true ? (
+      {isMobile == true ? (
         <Divider
           orientation="horizontal"
           minW="100%"

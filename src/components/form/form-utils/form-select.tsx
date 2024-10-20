@@ -5,7 +5,6 @@ import {
   FormControl,
   FormHelperText,
   FormErrorMessage,
-  Text,
 } from "@chakra-ui/react";
 import {
   get,

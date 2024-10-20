@@ -7,7 +7,7 @@ export const BNB_ADDRESS = {
 
 export const CRWDNET_CONTRACT = {
   "0x38": "",
-  "0x61": "0x3783d6A2e250e48C9ECF30ee7d82Af7241b29471",
+  "0x61": "0x4afd263FE7E86433e7dFB750bAB245510f98fD14",
 };
 
 export const CRWDTOKEN_CONTRACT = {
@@ -17,7 +17,7 @@ export const CRWDTOKEN_CONTRACT = {
 
 export const NFT_CONTRACT = {
   "0x38": "",
-  "0x61": "0xCd2350173696a4B1960339195a23cd17B2408b74",
+  "0x61": "0xCC076BDC3A74f656aECeCf1DE2Ab717dc564F9eA",
 };
 
 export const USDT_CONTRACT = {

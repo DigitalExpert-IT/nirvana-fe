@@ -21,6 +21,7 @@ import {
   useWallet,
   walletConnect,
 } from "@thirdweb-dev/react";
+import NiceModal from "@ebay/nice-modal-react";
 
 const targetChain: Chain = getActiveChain();
 
@@ -100,12 +101,13 @@ export default function App({ Component, pageProps }: AppProps) {
         localWallet(),
       ]}
       activeChain={targetChain}
-      clientId={CLIENT_ID}
-    >
-      <ChakraProvider theme={theme}>
+      clientId={CLIENT_ID}>
+    <ChakraProvider theme={theme}>
+      <NiceModal.Provider>
         <Component {...pageProps} />
-        <ChainBanner />
-      </ChakraProvider>
+        <ChainBanner/>
+      </NiceModal.Provider>
+    </ChakraProvider>
     </ThirdwebProvider>
   );
 }

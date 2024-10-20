@@ -203,3 +203,24 @@ export const RANKNETWORK: Array<IRankNetwork> = [
     leadershipBonus: "40%",
   },
 ];
+
+export const RankAsset = [
+  {
+    image: 'common.png'
+  },
+  {
+    image: 'rare.png'
+  },
+  {
+    image: 'super-rare.png'
+  },
+  {
+    image: 'epic.png'
+  },
+  {
+    image: 'legend.png'
+  },
+  {
+    image: 'super-legend.png'
+  }
+]

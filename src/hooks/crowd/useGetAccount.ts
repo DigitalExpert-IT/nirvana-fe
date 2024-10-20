@@ -1,14 +1,14 @@
 import { useAddress } from "@thirdweb-dev/react";
 import { useCrowdNetContract } from "./useCrowdNetContract";
 import { Network } from "crowd-contract/typechain-types/contracts/Network";
-import {NFT} from "crowd-contract/typechain-types/contracts/NFT";
+import {NFT} from "crowd-contract/typechain-types/contracts/NFT"
 import { useEffect, useState } from "react";
 import { useNFTContract } from "./useNFTContract";
 
 type AccountType = Awaited<ReturnType<Network["getAccount"]>>;
 type RankType = Awaited<ReturnType<Network["getRank"]>>;
-type FarmMatchingType = Awaited<ReturnType<NFT["rewardMatchingMap"]>>;
-type SponsorMap = Awaited<ReturnType<NFT["rewardSponsorMap"]>>;
+type FarmMatchingType = Awaited<ReturnType<NFT["matchingMap"]>>;
+type SponsorMap = Awaited<ReturnType<NFT["sponsorMap"]>>;
 
 export const useGetAccount = () => {
     const {contract: netContract} = useCrowdNetContract();
@@ -26,9 +26,9 @@ export const useGetAccount = () => {
 
             try {
                 const result = await netContract.call("getAccount", [address]);
-                const sponsor = await nftContract.call("rewardSponsorMap", [address]);
+                const sponsor = await nftContract.call("sponsorMap", [address]);
                 const rank = await nftContract.call("getMyRankReward", [address])
-                const farmMatching = await nftContract.call("rewardMatchingMap", [address])
+                const farmMatching = await nftContract.call("matchingMap", [address])
                 setData(result as AccountType);
                 setRank(rank as RankType)
                 setFarmMatching(farmMatching as FarmMatchingType)

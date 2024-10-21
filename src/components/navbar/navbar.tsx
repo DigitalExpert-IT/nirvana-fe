@@ -3,7 +3,7 @@ import Image from "next/image";
 import { NAVIGATION } from "constant/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import React, { useState, useEffect } from "react";
-import { MobileNav, NavbarMenu } from "components/navbar";
+import { MobileNav, NavbarMenu, WalletButton } from "components/navbar";
 import {
   Box,
   Flex,
@@ -13,22 +13,6 @@ import {
   Container,
   AspectRatio,
 } from "@chakra-ui/react";
-import WalletButton from "./wallet-button";
-import RegisterButton from "./register-button";
-
-export const NavbarButtons = () => {
-  return (
-    <Flex
-      flexDirection={{ base: "column", lg: "row" }}
-      alignItems={"center"}
-      gap={{ base: 6, sm: 2 }}
-      mt={{ base: 8, sm: "unset" }}
-    >
-      <RegisterButton />
-      <WalletButton />
-    </Flex>
-  );
-};
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -113,16 +97,15 @@ export const Navbar = () => {
           >
             <NavbarMenu data={NAVIGATION} />
           </Stack>
-          <Stack
+          <Flex
+            alignItems="center"
+            gap={2}
             flex={1}
-            justify={"end"}
-            align={"center"}
-            direction={"row"}
-            spacing={"4rem"}
-            display={{ base: "none", lg: "flex" }}
+            justify="right"
+            display={{ base: "none", md: "none", lg: "flex" }}
           >
-            <NavbarButtons />
-          </Stack>
+            <WalletButton />
+          </Flex>
         </Flex>
       </Container>
     </Box>

@@ -65,7 +65,7 @@ export const useCardList = () => {
 
     if (cardPrice.gte(allowanceCrowd)) {
       await approveCrowd.mutateAsync({
-        args: [nft.contract?.getAddress(), cardPrice.mul(10)],
+        args: [nft.contract?.getAddress(), cardPrice],
       });
     }
 

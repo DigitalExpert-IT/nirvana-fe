@@ -1,8 +1,13 @@
-import { useConnectedWallet, useConnectionStatus } from "@thirdweb-dev/react";
+import {
+  useConnectedWallet,
+  useConnectionStatus,
+  useSetIsWalletModalOpen,
+} from "@thirdweb-dev/react";
 import { useEffect, useState } from "react";
 
 const useClickConnectWallet = () => {
   const wallet = useConnectedWallet();
+  const modal = useSetIsWalletModalOpen();
   const connectionStatus = useConnectionStatus();
   const [loading, setIsLoading] = useState(true);
   const [isAbleToTransaction, setIsAbleToTransaction] = useState(false);
@@ -24,10 +29,8 @@ const useClickConnectWallet = () => {
   }, [connectionStatus, wallet]);
 
   const showModalConnectWallet = () => {
-    (
-      document.querySelector(".button-connect-wallet") as HTMLInputElement
-    ).click();
-    console.log("peler");
+    console.log("open modal wallet");
+    modal(true);
   };
 
   return { loading, showModalConnectWallet, isAbleToTransaction };

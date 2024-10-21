@@ -13,7 +13,7 @@ export const useAccountMap = (byPassAddress?: string | null) => {
 
   if (byPassAddress) address = byPassAddress;
 
-  const { data, ...rest } = useContractRead(contract.contract, "accounts", [
+  const { data, ...rest } = useContractRead(contract.contract, "getAccount", [
     address ?? NIL_ADDRESS,
   ]);
 

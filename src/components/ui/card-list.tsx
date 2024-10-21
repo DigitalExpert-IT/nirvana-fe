@@ -21,7 +21,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
   const { exec, isLoading } = useAsyncCall(buy);
 
   const handleBuy = () => {
-    if (!isAbleToTransaction) return showModalConnectWallet;
+    if (!isAbleToTransaction) return showModalConnectWallet();
     exec(props.id);
   };
 

@@ -1,0 +1,19 @@
+{
+  "required": "{{field}} 是必填项！",
+  "address": "{{address}} 是无效地址！",
+  "notOwnedNft": "您不拥有任何 NFT",
+  "pleaseConnectWallet": "请连接钱包",
+  "errorCode": {
+    "ACTION_REJECTED": "用户拒绝交易！",
+    "NotEnoughBalance": "余额不足",
+    "NotEnoughUsdtBalance": "USDT 余额不足",
+    "TokenFrozen": "代币已被冻结",
+    "NoReward": "尚无奖励",
+    "RegistrationRequired": "需要注册",
+    "RankNotYetStart": "等级尚未开始",
+    "MaxBuy": "最大购买，需要更多等级才能购买 NFT",
+    "RankStarted": "等级已开始，无法购买",
+    "NotEnoughUSDTBalance": "USDT 余额不足",
+    "FailedToClaim": "认领失败"
+  }
+}

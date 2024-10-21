@@ -4,6 +4,7 @@ import { ButtonCustom } from "./button-custom";
 import { CARD_IMAGE_MAP } from "constant/image";
 import { Box, Stack, Text, Image, Flex } from "@chakra-ui/react";
 import { useAsyncCall, useCardList } from "hooks";
+import useClickConnectWallet from "hooks/useClickConnectWallet";
 
 interface CardListNFTProps {
   title: string;
@@ -14,10 +15,13 @@ interface CardListNFTProps {
 
 export const CardList: React.FC<CardListNFTProps> = props => {
   const { buy } = useCardList();
+  const { showModalConnectWallet, loading, isAbleToTransaction } =
+    useClickConnectWallet();
 
   const { exec, isLoading } = useAsyncCall(buy);
 
   const handleBuy = () => {
+    if (!isAbleToTransaction) return showModalConnectWallet;
     exec(props.id);
   };
 
@@ -116,7 +120,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                     borderRadius="lg"
                     boxShadow={"0px 0px 15px rgba(145, 83, 246, 0.5)"}
                     onClick={() => handleBuy()}
-                    isLoading={isLoading}
+                    isLoading={isLoading || loading}
                   >
                     <Text color={"yellow"}>{t("common.buy")}</Text>
                   </ButtonCustom>

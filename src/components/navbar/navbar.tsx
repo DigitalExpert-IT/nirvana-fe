@@ -15,7 +15,6 @@ import {
 } from "@chakra-ui/react";
 import WalletButton from "./wallet-button";
 import RegisterButton from "./register-button";
-// import { ButtonConnectWallet } from "components/button";
 
 export const NavbarButtons = () => {
   return (

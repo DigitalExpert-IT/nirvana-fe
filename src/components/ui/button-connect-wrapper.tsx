@@ -8,5 +8,5 @@ type Props = ButtonProps & {
 export const ButtonConnectWrapper = (props: Props) => {
   const wallet = useWallet();
   if (wallet) return props.children ?? null;
-  return <ConnectWallet theme="dark" />;
+  return <ConnectWallet theme="dark" className="button-connect-wallet" />;
 };

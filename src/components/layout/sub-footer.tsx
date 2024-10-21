@@ -1,5 +1,5 @@
-import React from 'react';
-import Link from 'next/link';
+import React from "react";
+import Link from "next/link";
 import {
   Box,
   Text,
@@ -11,9 +11,9 @@ import {
   Select,
   FormControl,
   useDisclosure,
-} from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-import { ModalDisclaimer } from './modal-disclaimer';
+} from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import { ModalDisclaimer } from "./modal-disclaimer";
 
 export const SubFooter: React.FC = () => {
   const { i18n } = useTranslation();
@@ -24,7 +24,7 @@ export const SubFooter: React.FC = () => {
 
   return (
     <Wrap justify="space-evenly" color="gray.500" my="80px">
-      <WrapItem w={{ xl: '23%', md: '23%', base: '100%' }}>
+      <WrapItem w={{ xl: "23%", md: "23%", base: "100%" }}>
         <Box>
           <Text
             fontSize="xl"
@@ -36,20 +36,26 @@ export const SubFooter: React.FC = () => {
             Listed on
           </Text>
           <UnorderedList listStyleType="none" marginStart="none">
-            <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="https://coinmarketcap.com/currencies/nftnetwork/" target='_blank'>
+            <ListItem cursor="pointer" _hover={{ color: "red" }}>
+              <Link
+                href="https://coinmarketcap.com/currencies/nftnetwork/"
+                target="_blank"
+              >
                 Coinmarketcap
               </Link>
             </ListItem>
-            <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="https://www.coingecko.com/en/coins/nftnetwork" target='_blank'>
+            <ListItem cursor="pointer" _hover={{ color: "red" }}>
+              <Link
+                href="https://www.coingecko.com/en/coins/nftnetwork"
+                target="_blank"
+              >
                 Coingecko
               </Link>
             </ListItem>
           </UnorderedList>
         </Box>
       </WrapItem>
-      <WrapItem w={{ xl: '23%', md: '23%', base: '100%' }}>
+      <WrapItem w={{ xl: "23%", md: "23%", base: "100%" }}>
         <Box>
           <Text
             fontSize="xl"
@@ -61,20 +67,20 @@ export const SubFooter: React.FC = () => {
             Social
           </Text>
           <UnorderedList listStyleType="none" marginStart="none" mb="20px">
-            <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="#" target='_blank'>
+            <ListItem cursor="pointer" _hover={{ color: "red" }}>
+              <Link href="#" target="_blank">
                 Twitter
               </Link>
             </ListItem>
-            <ListItem cursor="pointer" _hover={{ color: 'red' }}>
-              <Link href="#" target='_blank'>
+            <ListItem cursor="pointer" _hover={{ color: "red" }}>
+              <Link href="#" target="_blank">
                 Telegram
               </Link>
             </ListItem>
           </UnorderedList>
         </Box>
       </WrapItem>
-      <WrapItem w={{ xl: '23%', md: '20%', base: '100%' }}>
+      <WrapItem w={{ xl: "23%", md: "20%", base: "100%" }}>
         <Box>
           <Text
             fontSize="xl"
@@ -88,14 +94,14 @@ export const SubFooter: React.FC = () => {
           <UnorderedList listStyleType="none" marginStart="none">
             <ListItem
               cursor="pointer"
-              _hover={{ color: 'red' }}
+              _hover={{ color: "red" }}
               onClick={onOpen}
             >
               <Box>Disclaimer</Box>
               <ModalDisclaimer
                 isOpen={isOpen}
                 onClose={onClose}
-                onAccept={() => { }}
+                onAccept={() => {}}
                 withoutAccept
               />
             </ListItem>
@@ -105,7 +111,7 @@ export const SubFooter: React.FC = () => {
       <WrapItem
         display="flex"
         alignItems="center"
-        w={{ xl: '23%', md: '30%', sm: '40%', base: '100%' }}
+        w={{ xl: "23%", md: "30%", sm: "40%", base: "100%" }}
       >
         <Box>
           <Image src="/crowd1.svg" alt="logo footer" mt="15px" />
@@ -114,13 +120,8 @@ export const SubFooter: React.FC = () => {
           </Text>
           <Box display="flex" justifyContent="center" mt="1rem">
             <FormControl w="3.5rem" display="flex">
-              <Select
-                size="xs"
-                onChange={(e) => changeLanguage(e.target.value)}
-              >
+              <Select size="xs" onChange={e => changeLanguage(e.target.value)}>
                 <option value="en">En</option>
-                <option value="tr">Tr</option>
-                <option value="fr">Fr</option>
                 <option value="cn">Cn</option>
               </Select>
             </FormControl>

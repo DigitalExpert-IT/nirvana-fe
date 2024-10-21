@@ -1,0 +1,25 @@
+{
+  "placeholder": {
+    "referrer": "推荐人地址",
+    "quantity": "数量",
+    "selectCurrency": "选择货币"
+  },
+  "label": {
+    "referrer": "推荐码",
+    "swap": "交换至",
+    "from": "从",
+    "to": "至"
+  },
+  "message": {
+    "registrationSuccess": "注册成功！",
+    "swapSucces": "交换成功",
+    "claimSuccess": "认领成功"
+  },
+  "helperText": {
+    "referrer": "请输入您的推荐地址",
+    "quantity": "请输入数量",
+    "balance": "余额 {{balanceOf}} {{symbol}}",
+    "afterFee": "扣除手续费后 {{value}} {{symbol}}",
+    "fee": "手续费 {{value}} {{symbol}}"
+  }
+}

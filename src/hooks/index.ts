@@ -5,3 +5,4 @@ export * from "./useScreen";
 export * from "./useAsyncCall";
 export * from "./useSwapContract";
 export * from "./useUSDTContract";
+export * from "./useClickConnectWallet";

@@ -1,0 +1,51 @@
+{
+  "navigation": {
+    "home": "首页",
+    "swap": "交换",
+    "profile": "个人资料",
+    "balance": "余额"
+  },
+  "header": {
+    "title": "赋能区块链创新的未来",
+    "typeDeps": "全球网络去中心化金融",
+    "description": "CROWD Token 处于区块链趋势的前沿，融合了人工智能、NFT 和 meme 经济的力量。作为多种代币的集散地，CROWD 使创新项目的发布成为可能，从尖端技术到病毒趋势。与 CROWD 一起，成为加密未来的一部分，这里是新代币诞生和区块链发展的地方。"
+  },
+  "banner": {
+    "invalidChainMessage": "您连接的是无效链！",
+    "switchChain": "切换到 {{name}}"
+  },
+  "activeDownline": "活跃下线",
+  "address": "地址",
+  "bnbPlan": "BNB 计划",
+  "buy": "立即购买",
+  "claim": "认领",
+  "connectWallet": "连接钱包",
+  "copied": "已复制！",
+  "copy": "复制",
+  "crowdNftSystem": "CROWD NFT 系统",
+  "farm": "农场",
+  "farmMatching": "农场匹配",
+  "farmReward": "农场匹配奖励",
+  "founder": "创始人",
+  "gacha": "扭蛋",
+  "leadershipBonus": "领导奖金",
+  "level": "级别",
+  "matchingBonus": "匹配奖金",
+  "matchingReward": "匹配奖励",
+  "max": "最大",
+  "maxFarm": "最大农场",
+  "nftAllocation": "NFT 分配",
+  "percent": "百分比",
+  "product": "农场级别",
+  "rankNetwork": "排名网络",
+  "rankNft": "排名",
+  "rankReward": "排名（全球总额）",
+  "leaderShipreward": "领导奖励",
+  "register": "注册",
+  "requirement": "要求",
+  "sponsor": "赞助人",
+  "succesBuyNft": "成功购买 NFT",
+  "swap": "交换",
+  "system": "系统",
+  "totalNftBuy": "总 NFT 购买"
+}

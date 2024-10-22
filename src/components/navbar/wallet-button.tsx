@@ -28,7 +28,7 @@ export const WalletButton = (props: Props) => {
           borderRadius="xl"
           fontWeight="md"
           fontSize="md"
-          onClick={() => handleNavigate}
+          onClick={() => handleNavigate()}
         >
           {t("common.register")}
         </Button>

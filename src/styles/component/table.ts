@@ -18,7 +18,7 @@ const variantCrowd = definePartsStyle(props => {
       borderSpacing: "10px",
     },
     th: {
-      color: mode("gray.600", "gray.300")(props),
+      color: mode("gray.100", "gray.300")(props),
       border: "1px",
       textAlign: "center",
       bgColor: "#0A1022",
@@ -32,7 +32,7 @@ const variantCrowd = definePartsStyle(props => {
       ...numericStyles,
     },
     caption: {
-      color: mode("gray.600", "gray.100")(props),
+      color: mode("gray.100", "gray.100")(props),
     },
     tfoot: {
       tr: {

@@ -1,23 +1,15 @@
 export const CARAOUSEL_IMAGE = [
   {
-    url: "https://res.cloudinary.com/bangyosh-dev/image/upload/c_scale,w_700/v1648727590/4_q8ygcy.png",
+    url: "/art-1.png",
     alt: "slider-1",
   },
   {
-    url: "https://res.cloudinary.com/bangyosh-dev/image/upload/c_scale,w_700/v1648727590/1_i8nfhd.png",
+    url: "/art-2.png",
     alt: "slider-2",
   },
   {
-    url: "https://res.cloudinary.com/bangyosh-dev/image/upload/c_scale,w_700/v1648727589/5_jogezb.png",
+    url: "/art-3.png",
     alt: "slider-3",
-  },
-  {
-    url: "https://res.cloudinary.com/bangyosh-dev/image/upload/c_scale,w_700/v1648727589/2_uwfhxk.png",
-    alt: "slider-4",
-  },
-  {
-    url: "https://res.cloudinary.com/bangyosh-dev/image/upload/c_scale,w_700/v1648727589/3_uewzfl.png",
-    alt: "slider-4",
   },
 ];
 

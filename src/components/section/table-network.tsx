@@ -25,11 +25,7 @@ const columns = [
           w={{ base: "3", md: "5" }}
           h={{ base: "3", md: "7" }}
         />
-        <Text
-          fontSize={{ base: "sm", md: "xl" }}
-          textTransform="capitalize"
-          color="gray.300"
-        >
+        <Text fontSize={{ base: "sm", md: "xl" }} textTransform="capitalize">
           {info.getValue()}
         </Text>
       </Stack>
@@ -58,11 +54,7 @@ const columns = [
         whiteSpace="pre-wrap"
         justify="center"
       >
-        <Text
-          fontSize={{ base: "sm", md: "xl" }}
-          textTransform="capitalize"
-          color="gray.300"
-        >
+        <Text fontSize={{ base: "sm", md: "xl" }} textTransform="capitalize">
           {info.getValue()}
         </Text>
       </Stack>

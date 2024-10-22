@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
 import { INavigation } from "constant/navigation";
-// import { ButtonConnectWallet } from "components";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { WalletButton } from "./wallet-button";
 import {
   Box,
   FormControl,
@@ -21,9 +21,7 @@ import {
   useDisclosure,
   Collapse,
   Heading,
-  DrawerFooter,
 } from "@chakra-ui/react";
-import { WalletButton } from "./wallet-button";
 
 interface MobileDrawerProps {
   isOpen: boolean;
@@ -38,7 +36,6 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
-  // const connectionStatus = useConnectionStatus();
 
   return (
     <Drawer isOpen={isOpen} placement="left" onClose={onClose}>
@@ -51,9 +48,6 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
         <DrawerBody p="0">
           <Stack spacing="5">
             {data.map((item, idx) => {
-              // if (item.name === "myNetwork" && connectionStatus !== "connected")
-              //   return null;
-              //
               return (
                 <Stack key={idx} onClick={item.children && onToggle}>
                   <Flex
@@ -115,18 +109,16 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
             justify="center"
             p="2"
             my="2"
-            h="30%"
+            h="25%"
             alignItems={"center"}
           >
             <WalletButton />
           </Stack>
-        </DrawerBody>
-        <DrawerFooter>
-          <Box display="flex" justifyContent="center" mb="5">
-            <FormControl display="flex" w="full">
+          <Box display="flex" justifyContent="center">
+            <FormControl display="flex" w="5rem">
               <Select
                 bg="blackAlpha.500"
-                size="sm"
+                size="lg"
                 border="none"
                 onChange={e => changeLanguage(e.target.value)}
               >
@@ -135,7 +127,7 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
               </Select>
             </FormControl>
           </Box>
-        </DrawerFooter>
+        </DrawerBody>
       </DrawerContent>
     </Drawer>
   );

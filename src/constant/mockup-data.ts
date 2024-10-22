@@ -41,58 +41,63 @@ export const RANKSYSTEM: Array<IRankSystem> = [
     share: "pool reward",
     percent: "40%",
   },
+  {
+    share: "marketing",
+    percent: "17%",
+  },
 ];
 
 export const FARMMATCHING: Array<IFarmMatching> = [
   {
     level: "level 1",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT",
   },
   {
     level: "level 2",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT",
   },
   {
     level: "level 3",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT",
   },
   {
     level: "level 4",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT",
   },
   {
     level: "level 5",
     percent: "5%",
-    requirement: "Buy 1 NFT"
+    requirement: "Buy 1 NFT",
   },
   {
     level: "level 6",
     percent: "5%",
-    requirement: "Buy 1 NFT + Rare Rank"
+    requirement: "Buy 1 NFT + Rare Rank",
   },
   {
     level: "level 7",
     percent: "5%",
-    requirement: "Buy 1 NFT + Rare Rank"
+    requirement: "Buy 1 NFT + Rare Rank",
   },
   {
     level: "level 8",
     percent: "5%",
-    requirement: "Buy 1 NFT + Rare Rank"
+    requirement: "Buy 1 NFT + Rare Rank",
   },
   {
     level: "level 9",
     percent: "5%",
-    requirement: "Buy 1 NFT + Rare Rank"
-  },{
+    requirement: "Buy 1 NFT + Rare Rank",
+  },
+  {
     level: "level 10",
     percent: "5%",
-    requirement: "Buy 1 NFT + Rare Rank"
-  }
+    requirement: "Buy 1 NFT + Rare Rank",
+  },
 ];
 
 export const DATA_NFT = [
@@ -135,7 +140,7 @@ export const OWNED_NFT = [
     price: "0",
     gacha: 0.5,
     mintingPrice: 1000,
-    lastGrindAt: new Date("2024-10-21")
+    lastGrindAt: new Date("2024-10-21"),
   },
   {
     id: 2,
@@ -143,7 +148,7 @@ export const OWNED_NFT = [
     price: "0",
     gacha: 0.5,
     mintingPrice: 10000,
-    lastGrindAt: new Date("2024-10-21")
+    lastGrindAt: new Date("2024-10-21"),
   },
   {
     id: 3,
@@ -151,7 +156,7 @@ export const OWNED_NFT = [
     price: "0",
     gacha: 0.5,
     mintingPrice: 50000,
-    lastGrindAt: new Date("2024-10-21")
+    lastGrindAt: new Date("2024-10-21"),
   },
   {
     id: 4,
@@ -159,7 +164,7 @@ export const OWNED_NFT = [
     price: "0",
     gacha: 0.5,
     mintingPrice: 200000,
-    lastGrindAt: new Date("2024-10-21")
+    lastGrindAt: new Date("2024-10-21"),
   },
   {
     id: 5,
@@ -167,7 +172,7 @@ export const OWNED_NFT = [
     price: "0",
     gacha: 0.5,
     mintingPrice: 1000000,
-    lastGrindAt: new Date("2024-10-21")
+    lastGrindAt: new Date("2024-10-21"),
   },
 ];
 
@@ -206,21 +211,21 @@ export const RANKNETWORK: Array<IRankNetwork> = [
 
 export const RankAsset = [
   {
-    image: 'common.png'
+    image: "common.png",
   },
   {
-    image: 'rare.png'
+    image: "rare.png",
   },
   {
-    image: 'super-rare.png'
+    image: "super-rare.png",
   },
   {
-    image: 'epic.png'
+    image: "epic.png",
   },
   {
-    image: 'legend.png'
+    image: "legend.png",
   },
   {
-    image: 'super-legend.png'
-  }
-]
+    image: "super-legend.png",
+  },
+];

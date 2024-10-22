@@ -8,13 +8,13 @@ export const withAuthGuard = (WrappedComponent: React.ComponentType) => {
   return function AuthGuard(props) {
     const pathname = usePathname();
     const router = useRouter();
-    const { data } = useGetAccount();
+    const { data, error } = useGetAccount();
 
     useEffect(() => {
-      if (pathname === "/profile" && data === undefined) {
+      if (pathname === "/profile" && error !== undefined) {
         router.push(`/`); 
       }
-    }, [pathname, data, router]);
+    }, [pathname, data, router, error]);
 
     
     return <WrappedComponent {...props} />;

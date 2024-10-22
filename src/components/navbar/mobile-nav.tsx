@@ -5,6 +5,9 @@ import { INavigation } from "constant/navigation";
 import { useTranslation } from "react-i18next";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
+  Box,
+  FormControl,
+  Select,
   Drawer,
   DrawerBody,
   DrawerHeader,
@@ -18,6 +21,7 @@ import {
   useDisclosure,
   Collapse,
   Heading,
+  DrawerFooter,
 } from "@chakra-ui/react";
 import { WalletButton } from "./wallet-button";
 
@@ -30,7 +34,10 @@ interface MobileDrawerProps {
 export const MobileNav: React.FC<MobileDrawerProps> = props => {
   const { isOpen, onClose, data } = props;
   const { isOpen: openChild, onToggle } = useDisclosure();
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
   // const connectionStatus = useConnectionStatus();
 
   return (
@@ -107,13 +114,28 @@ export const MobileNav: React.FC<MobileDrawerProps> = props => {
             w="full"
             justify="center"
             p="2"
-            my="5"
+            my="2"
             h="30%"
             alignItems={"center"}
           >
             <WalletButton />
           </Stack>
         </DrawerBody>
+        <DrawerFooter>
+          <Box display="flex" justifyContent="center" mb="5">
+            <FormControl display="flex" w="full">
+              <Select
+                bg="blackAlpha.500"
+                size="sm"
+                border="none"
+                onChange={e => changeLanguage(e.target.value)}
+              >
+                <option value="en">En</option>
+                <option value="cn">Cn</option>
+              </Select>
+            </FormControl>
+          </Box>
+        </DrawerFooter>
       </DrawerContent>
     </Drawer>
   );

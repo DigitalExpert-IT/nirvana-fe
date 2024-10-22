@@ -19,7 +19,7 @@ export const WalletButton = (props: Props) => {
 
   return (
     <Stack spacing="4" direction={props.direction ?? "row"} align="center">
-      {data?.isRegistered || data == undefined ? null : (
+      {data?.isRegistered || data !== undefined ? null : (
         <Button
           isLoading={isLoading && !isFetched}
           bg="#9321dd"

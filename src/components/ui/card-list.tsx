@@ -18,7 +18,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
   const { showModalConnectWallet, loading, isAbleToTransaction } =
     useClickConnectWallet();
 
-  const { exec, isLoading } = useAsyncCall(buy);
+  const { exec, isLoading } = useAsyncCall(buy, t("common.succesBuyNft"));
 
   const handleBuy = () => {
     if (!isAbleToTransaction) return showModalConnectWallet();

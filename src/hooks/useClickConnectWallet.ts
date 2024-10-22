@@ -29,7 +29,6 @@ const useClickConnectWallet = () => {
   }, [connectionStatus, wallet]);
 
   const showModalConnectWallet = () => {
-    console.log("open modal wallet");
     modal(true);
   };
 

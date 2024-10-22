@@ -3,7 +3,7 @@ import { useCrowdNetContract } from "./useCrowdNetContract";
 import { Network } from "crowd-contract/typechain-types/contracts/Network";
 import {NFT} from "crowd-contract/typechain-types/contracts/NFT"
 import { useEffect, useState } from "react";
-import { useNFTContract } from "./useNFTContract";
+import { useNftCrowdContract } from "hooks/nft";
 
 type AccountType = Awaited<ReturnType<Network["getAccount"]>>;
 type RankType = Awaited<ReturnType<Network["getRank"]>>;
@@ -12,7 +12,7 @@ type SponsorMap = Awaited<ReturnType<NFT["sponsorMap"]>>;
 
 export const useGetAccount = () => {
     const {contract: netContract} = useCrowdNetContract();
-    const nftContract = useNFTContract();
+    const {contract: nftContract} = useNftCrowdContract();
     const address = useAddress();
     const [data, setData] = useState<AccountType>();
     const [rank, setRank] = useState<RankType>()

@@ -1,22 +1,38 @@
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { t } from "i18next";
 import { ButtonCustom } from "./button-custom";
 import { CARD_IMAGE_MAP } from "constant/image";
 import { Box, Stack, Text, Image, Flex } from "@chakra-ui/react";
 import { useAsyncCall, useCardList } from "hooks";
 import useClickConnectWallet from "hooks/useClickConnectWallet";
+import { differenceInSeconds } from "date-fns";
+import { BigNumber } from "ethers";
+import { fromBn } from "evm-bn";
 
 interface CardListNFTProps {
   title: string;
-  price: string;
-  gacha?: string;
+  price?: string;
+  gacha?: number;
   id: number;
+  cardId?: number;
+  mintingPrice?: BigNumber;
+  mintedDate?: number;
+  maxGrind?: number;
+  percentage?: BigNumber;
+  lastGrindAt?: BigNumber;
+  loadingClaim?: boolean;
+  claim?: () => void; 
 }
 
 export const CardList: React.FC<CardListNFTProps> = props => {
+  const {id, cardId, lastGrindAt, mintingPrice, percentage } = props
   const { buy } = useCardList();
   const { showModalConnectWallet, loading, isAbleToTransaction } =
     useClickConnectWallet();
+
+  const intervalRef = useRef<number>();
+  const farmTextRef = useRef<HTMLParagraphElement>(null);
+  const lastFarmedAtRef = useRef<BigNumber>(lastGrindAt);
 
   const { exec, isLoading } = useAsyncCall(buy, t("common.succesBuyNft"));
 
@@ -24,6 +40,29 @@ export const CardList: React.FC<CardListNFTProps> = props => {
     if (!isAbleToTransaction) return showModalConnectWallet();
     exec(props.id);
   };
+
+  useLayoutEffect(() => {
+    intervalRef.current = window.setInterval(() => {
+      if (!farmTextRef.current) return;
+
+      const farmPerDay = mintingPrice.mul(percentage.mul(10)).div(1000 * 10);
+      const farmPerSec = farmPerDay.div(86400);
+
+      const secDiff = differenceInSeconds(
+        new Date(),
+        new Date(lastFarmedAtRef.current.toNumber() * 1000)
+      );
+
+      const farmValue = farmPerSec.mul(secDiff);
+      farmTextRef.current.innerText = parseFloat(fromBn(farmValue, 18)).toPrecision(5);
+    }, 1000);
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, [mintingPrice, percentage]);
+
+  
 
   return (
     <Box rounded="xl" overflow="hidden">
@@ -35,7 +74,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
       >
         <Stack bgColor="#26292d" p="1.4rem" rounded="xl">
           <Box as="video" autoPlay loop muted rounded="xl">
-            <source src={CARD_IMAGE_MAP[props.id as 0]} type="video/mp4" />
+            <source src={CARD_IMAGE_MAP[percentage ? cardId as 0 : id as 0]} type="video/mp4" />
           </Box>
           <Box py="1rem">
             <Stack height="60px" direction="column" spacing={0}>
@@ -60,7 +99,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                   />
                 </Box>
               </Flex>
-              {props.gacha ? (
+              {props.percentage ? (
                 <Text
                   fontSize="sm"
                   textTransform="capitalize"
@@ -68,7 +107,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                   color="purple.500"
                   mb="20px"
                 >
-                  {t("common.gacha")} : {props.gacha}
+                  {t("common.gacha")} : {fromBn(percentage, 1).toString()}
                 </Text>
               ) : (
                 <Text
@@ -88,15 +127,17 @@ export const CardList: React.FC<CardListNFTProps> = props => {
               pt="2rem"
               align="center"
             >
-              {props.gacha ? (
+              {props.maxGrind ? (
                 <ButtonCustom
                   typeButton={2}
-                  size="lg"
+                  size="md"
                   borderRadius="lg"
                   minW={"100%"}
+                  isLoading={props.loadingClaim}
+                  onClick={() => props.claim()}
                   boxShadow={"0px 0px 15px rgba(145, 83, 246, 0.5)"}
                 >
-                  <Text color={"yellow"}>{t("common.farm")}</Text>
+                  <Text color={"yellow"} ref={farmTextRef}/> 
                 </ButtonCustom>
               ) : (
                 <>
@@ -107,9 +148,15 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                     bgGradient="linear(to-r, purpleMain.300, purpleMain.400)"
                     display={"flex"}
                   >
-                    <Text fontWeight="bold" fontSize="sm" mr={"3px"}>
-                      {props.price}
-                    </Text>
+                    {props.maxGrind ?
+                      <Text fontWeight="bold" fontSize="sm" mr={"3px"}>
+                      {props.maxGrind}
+                      </Text>
+                    :
+                      <Text fontWeight="bold" fontSize="sm" mr={"3px"}>
+                        {props.price}
+                      </Text>
+                    }
                     <Text fontWeight="bold" fontSize="sm" color="teal.300">
                       CROWD
                     </Text>

@@ -2,8 +2,9 @@
 import { Box, Image, Container, Flex, Heading } from "@chakra-ui/react";
 import { Layout } from "components/layout";
 import { MyNftList, ProfileStatus, RewardSection } from "components/profile";
+import { withAuthGuard } from "hoc";
 
-export default function Profile() {
+const Profile = () => {
   return (
     <Layout>
       <Box>
@@ -43,3 +44,5 @@ export default function Profile() {
     </Layout>
   );
 }
+
+export default withAuthGuard(Profile);

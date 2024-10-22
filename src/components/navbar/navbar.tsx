@@ -16,12 +16,14 @@ import {
   Container,
   AspectRatio,
 } from "@chakra-ui/react";
+import { useConnectionStatus } from "@thirdweb-dev/react";
 
 export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [scrolled, setScrolled] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const { i18n } = useTranslation();
+  const connect = useConnectionStatus();
   const changeLanguage = (lng: string) => {
     i18n.changeLanguage(lng);
   };
@@ -102,7 +104,7 @@ export const Navbar = () => {
             align="center"
             flex={1}
           >
-            <NavbarMenu data={NAVIGATION} />
+            <NavbarMenu data={connect === "connected" ? NAVIGATION : NAVIGATION.slice(0,2)}  />
           </Stack>
           <Flex
             alignItems="center"

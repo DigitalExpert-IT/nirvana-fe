@@ -133,41 +133,41 @@ export const OWNED_NFT = [
     id: 1,
     title: "1",
     price: "0",
-    gacha: "0.5",
-    mintedAt: new Date("2024-09-12"),
-    claimedAt: Date.now()
+    gacha: 0.5,
+    mintingPrice: 1000,
+    lastGrindAt: new Date("2024-10-21")
   },
   {
     id: 2,
     title: "2",
     price: "0",
-    gacha: "0.5",
-    mintedAt: new Date("2024-09-12"),
-    claimedAt: Date.now()
+    gacha: 0.5,
+    mintingPrice: 10000,
+    lastGrindAt: new Date("2024-10-21")
   },
   {
     id: 3,
     title: "3",
     price: "0",
-    gacha: "0.5",
-    mintedAt: new Date("2024-09-12"),
-    claimedAt: Date.now()
+    gacha: 0.5,
+    mintingPrice: 50000,
+    lastGrindAt: new Date("2024-10-21")
   },
   {
     id: 4,
     title: "4",
     price: "0",
-    gacha: "0.5",
-    mintedAt: new Date("2024-09-12"),
-    claimedAt: Date.now()
+    gacha: 0.5,
+    mintingPrice: 200000,
+    lastGrindAt: new Date("2024-10-21")
   },
   {
     id: 5,
     title: "5",
     price: "0",
-    gacha: "0.5",
-    mintedAt: new Date("2024-09-12"),
-    claimedAt: Date.now()
+    gacha: 0.5,
+    mintingPrice: 1000000,
+    lastGrindAt: new Date("2024-10-21")
   },
 ];
 

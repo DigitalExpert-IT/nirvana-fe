@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslation } from "react-i18next";
 import { NAVIGATION } from "constant/navigation";
 import { GiHamburgerMenu } from "react-icons/gi";
 import React, { useState, useEffect } from "react";
 import { MobileNav, NavbarMenu, WalletButton } from "components/navbar";
 import {
+  Select,
+  FormControl,
   Box,
   Flex,
   Stack,
@@ -18,6 +21,10 @@ export const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [scrolled, setScrolled] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const { i18n } = useTranslation();
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -105,6 +112,19 @@ export const Navbar = () => {
             display={{ base: "none", md: "none", lg: "flex" }}
           >
             <WalletButton />
+            <Box display="flex" justifyContent="center">
+              <FormControl display="flex">
+                <Select
+                  bg="blackAlpha.500"
+                  size="md"
+                  border="none"
+                  onChange={e => changeLanguage(e.target.value)}
+                >
+                  <option value="en">En</option>
+                  <option value="cn">Cn</option>
+                </Select>
+              </FormControl>
+            </Box>
           </Flex>
         </Flex>
       </Container>

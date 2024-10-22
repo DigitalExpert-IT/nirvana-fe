@@ -31,7 +31,7 @@ export const useCardList = () => {
             ...nftItem,
             id: BigNumber.from(cardId),
           };
-        })
+        }),
       );
       setData(nftList);
     } catch (error) {
@@ -59,13 +59,13 @@ export const useCardList = () => {
 
     if (cardPrice.gt(crowdBalance)) {
       throw {
-        code: "NotEnoughWangBalance",
+        code: "NotEnoughBalance",
       };
     }
 
     if (cardPrice.gte(allowanceCrowd)) {
       await approveCrowd.mutateAsync({
-        args: [nft.contract?.getAddress(), cardPrice],
+        args: [nft.contract?.getAddress(), cardPrice.mul(10)],
       });
     }
 

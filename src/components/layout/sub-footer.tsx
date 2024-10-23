@@ -33,37 +33,6 @@ export const SubFooter: React.FC = () => {
             mb="30px"
             mt="15px"
           >
-            Listed on
-          </Text>
-          <UnorderedList listStyleType="none" marginStart="none">
-            <ListItem cursor="pointer" _hover={{ color: "red" }}>
-              <Link
-                href="https://coinmarketcap.com/currencies/nftnetwork/"
-                target="_blank"
-              >
-                Coinmarketcap
-              </Link>
-            </ListItem>
-            <ListItem cursor="pointer" _hover={{ color: "red" }}>
-              <Link
-                href="https://www.coingecko.com/en/coins/nftnetwork"
-                target="_blank"
-              >
-                Coingecko
-              </Link>
-            </ListItem>
-          </UnorderedList>
-        </Box>
-      </WrapItem>
-      <WrapItem w={{ xl: "23%", md: "23%", base: "100%" }}>
-        <Box>
-          <Text
-            fontSize="xl"
-            color="white"
-            fontWeight="bold"
-            mb="30px"
-            mt="15px"
-          >
             Social
           </Text>
           <UnorderedList listStyleType="none" marginStart="none" mb="20px">

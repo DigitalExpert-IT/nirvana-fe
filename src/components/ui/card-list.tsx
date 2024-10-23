@@ -86,7 +86,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                     fontWeight="bold"
                     color="gray.500"
                   >
-                    CROWD {t("common.product")} {props.title}
+                    CROWD {t("common.product")} {parseInt(props.title)+1}
                   </Text>
                 </Box>
                 <Box>

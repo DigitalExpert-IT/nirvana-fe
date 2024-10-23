@@ -1,14 +1,14 @@
 export const CARAOUSEL_IMAGE = [
   {
-    url: "/art-1.png",
+    url: "/Art-1.png",
     alt: "slider-1",
   },
   {
-    url: "/art-2.png",
+    url: "/Art-2.png",
     alt: "slider-2",
   },
   {
-    url: "/art-3.png",
+    url: "/Art-3.png",
     alt: "slider-3",
   },
 ];

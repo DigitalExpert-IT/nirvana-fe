@@ -5,15 +5,15 @@ import { Network } from "crowd-contract/typechain-types";
 import { useContractRead, useAddress } from "@thirdweb-dev/react";
 import { useCrowdNetContract } from "./useCrowdNetContract";
 
-type AccountType = Awaited<ReturnType<Network["accounts"]>>;
+type AccountType = Awaited<ReturnType<Network["getAccount"]>>;
 
 export const useAccountMap = (byPassAddress?: string | null) => {
-  const contract = useCrowdNetContract();
+  const {contract} = useCrowdNetContract();
   let address = useAddress();
 
   if (byPassAddress) address = byPassAddress;
 
-  const { data, ...rest } = useContractRead(contract.contract, "getAccount", [
+  const { data, ...rest } = useContractRead(contract, "getAccount", [
     address ?? NIL_ADDRESS,
   ]);
 

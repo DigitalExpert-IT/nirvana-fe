@@ -2,6 +2,7 @@
   "navigation": {
     "home": "Home",
     "swap": "Swap",
+    "founder": "Founder", 
     "profile": "Profile",
     "balance": "Balance"
   },

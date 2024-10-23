@@ -14,14 +14,18 @@ export default function Home() {
 
   return (
     <Layout>
-      <Box pt={{ base: "5rem", md: "8rem" }}>
+      <Box bgGradient="linear(rgba(33,36,40,1)">
+      <Box py={{ base: "5rem", md: "8rem" }} backgroundImage={"/BgSwap.png"} backgroundSize={"cover"} backgroundRepeat={"no-repeat"}>
         <Container maxW="container.xl">
+        
           <Header
             title={t("common.header.title")}
             description={t("common.header.description")}
             typeDaps={t("common.header.typeDeps")}
           />
         </Container>
+        
+      </Box>
       </Box>
       <Box
         backgroundImage="https://ik.imagekit.io/msxxxaegj/nirvana/bg-card-section.jpg?updatedAt=1728144026830"

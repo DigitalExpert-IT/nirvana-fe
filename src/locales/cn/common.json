@@ -2,6 +2,7 @@
   "navigation": {
     "home": "首页",
     "swap": "交换",
+    "founder": "创始人", 
     "profile": "个人资料",
     "balance": "余额"
   },

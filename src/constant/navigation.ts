@@ -27,6 +27,10 @@ export const NAVIGATION: Array<INavigation> = [
     href: "/swap"
   },
   {
+    name: "founder",
+    href: "/founder"
+  },
+  {
     name: "profile",
     href: "/profile"
   }

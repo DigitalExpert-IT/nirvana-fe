@@ -7,8 +7,8 @@ import { useNftCrowdContract } from "hooks/nft";
 
 type AccountType = Awaited<ReturnType<Network["getAccount"]>>;
 type RankType = Awaited<ReturnType<Network["getRank"]>>;
-type FarmMatchingType = Awaited<ReturnType<NFT["matchingMap"]>>;
-type SponsorMap = Awaited<ReturnType<NFT["sponsorMap"]>>;
+type FarmMatchingType = Awaited<ReturnType<NFT["matchingPoolMap"]>>;
+type SponsorMap = Awaited<ReturnType<NFT["sponsorPoolMap"]>>;
 
 export const useGetAccount = () => {
     const {contract: netContract} = useCrowdNetContract();
@@ -26,9 +26,9 @@ export const useGetAccount = () => {
 
             try {
                 const result = await netContract.call("getAccount", [address]);
-                const sponsor = await nftContract.call("sponsorMap", [address]);
+                const sponsor = await nftContract.call("sponsorPoolMap", [address]);
                 const rank = await nftContract.call("getMyRankReward", [address])
-                const farmMatching = await nftContract.call("matchingMap", [address])
+                const farmMatching = await nftContract.call("matchingPoolMap", [address])
                 setData(result as AccountType);
                 setRank(rank as RankType)
                 setFarmMatching(farmMatching as FarmMatchingType)

@@ -27,8 +27,8 @@ importers:
         specifier: ^4.17.10
         version: 4.17.10
       crowd-contract:
-        specifier: '^1.1.5 '
-        version: 1.1.5(@ethersproject/bignumber@5.7.0)(typescript@5.6.2)
+        specifier: ^1.2.0
+        version: 1.2.1(@ethersproject/bignumber@5.7.0)(typescript@5.6.2)
       date-fns:
         specifier: ^4.1.0
         version: 4.1.0
@@ -2956,8 +2956,8 @@ packages:
       uWebSockets.js:
         optional: true
 
-  crowd-contract@1.1.5:
-    resolution: {integrity: sha512-PVtlw/o9ry/Ue24Cg7IcvT/GsvqzhEieKgoFGmSFUAPgzmhPWbxoKiPt7qwLfzZ+b4KIKXVCJS4LST/W0nR+rg==}
+  crowd-contract@1.2.1:
+    resolution: {integrity: sha512-hjlfzWmZcKSE1F7M+F3pVrZzJUhfD93hFpe0sZF8OxbNnmAydHtQ2t3pS0NkKCyA+8RPYv4F+TtvifUDJmKHUQ==}
 
   crypto-browserify@3.12.0:
     resolution: {integrity: sha512-fz4spIh+znjO2VjL+IdhEpRJ3YN6sMzITSBijk6FK2UvTqruSQW+/cCZTSNsMiZNvUeq0CqurF+dAbyiGOY6Wg==}
@@ -11166,7 +11166,7 @@ snapshots:
 
   crossws@0.2.4: {}
 
-  crowd-contract@1.1.5(@ethersproject/bignumber@5.7.0)(typescript@5.6.2):
+  crowd-contract@1.2.1(@ethersproject/bignumber@5.7.0)(typescript@5.6.2):
     dependencies:
       '@openzeppelin/contracts': 4.9.6
       '@openzeppelin/contracts-upgradeable': 4.9.6

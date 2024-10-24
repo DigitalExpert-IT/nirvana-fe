@@ -7,7 +7,7 @@ export const BNB_ADDRESS = {
 
 export const CRWDNET_CONTRACT = {
   "0x38": "",
-  "0x61": " 0x11902BBE5795b1320b575e7C53Fc15b0eB4b23B4",
+  "0x61": "0x11902BBE5795b1320b575e7C53Fc15b0eB4b23B4",
 };
 
 export const CRWDTOKEN_CONTRACT = {

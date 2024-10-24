@@ -7,26 +7,26 @@ import {
   Box,
   Heading,
   Text,
-  useMediaQuery,
   Flex,
   HStack,
 } from "@chakra-ui/react";
 import { useAddress, useBalance } from "@thirdweb-dev/react";
-import { CRWDNET_CONTRACT, BNB_ADDRESS, NFT_CONTRACT } from "constant/address";
+import { CRWDNET_CONTRACT, BNB_ADDRESS, NFT_CONTRACT, CRWDTOKEN_CONTRACT } from "constant/address";
 import { useGetAccount } from "hooks";
+import { fromBn } from "evm-bn";
 
 const currentChainiId = process.env.NEXT_PUBLIC_CHAIN_ID;
 
 export const ProfileStatus = () => {
   const { t } = useTranslation();
+  const crwdToken = CRWDTOKEN_CONTRACT[currentChainiId as "0x61"];
   const crwdAddress = CRWDNET_CONTRACT[currentChainiId as "0x61"];
   const bnbAddress = BNB_ADDRESS[currentChainiId as "0x61"];
   const nftAddress = NFT_CONTRACT[currentChainiId as "0x61"];
-  const [isLarge] = useMediaQuery("(min-width: 800px)");
   const {data} = useGetAccount();
   const {rank} = useGetAccount();
   const address = useAddress();
-  const balances = useBalance();
+  const {data: balances} = useBalance(crwdToken);
 
   return (
     <Stack direction={{ base: "column", md: "row" }}>
@@ -41,9 +41,9 @@ export const ProfileStatus = () => {
         <Box minW={"40%"}>
           <Heading size="lg">{t("profile.my")}</Heading>
           <Text color="gray.500" fontSize="sm" my={2}>
-            {isLarge
-              ? `${t("profile.balanceCrwd")} : ` + balances.data?.value
-              : `${t("profile.balanceCrwd")} : ` + balances.data?.value}
+            {balances?.value === undefined
+              ? `${t("profile.balanceCrwd")} : ` + 0
+              : `${t("profile.balanceCrwd")} : ` + fromBn(balances?.value, 18)}
           </Text>
           <Text color="gray.500" fontSize="sm" my={2}>
             {data?.totalDownline === undefined

@@ -1,7 +1,7 @@
-import { Divider, Flex, Heading, Stack, Text, Box, useMediaQuery } from "@chakra-ui/react";
+import { Divider, Flex, Heading, Stack, Text, Box, useMediaQuery, Tooltip } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import { ButtonCustom } from "components/ui";
-import { useAsyncCall } from "hooks";
+import { useAsyncCall, useStartClaim } from "hooks";
 import { useGetAccount } from "hooks";
 import { fromBn } from "evm-bn";
 import { useContractWrite } from "@thirdweb-dev/react";
@@ -11,6 +11,7 @@ export const RewardSection = () => {
   const { t } = useTranslation();
   const {contract: nftContract} = useNftCrowdContract()
   const { leadership, sponsor, farmMatching} = useGetAccount();
+  const {isStartClaim} = useStartClaim();
   const [isMobile] = useMediaQuery("(max-width: 800px)")
   const {mutateAsync: claimFarm, isLoading: farmLoading} = useContractWrite(nftContract, "claimMatchingReward")
   const {mutateAsync: claimSponsor, isLoading: sponsorLoading} = useContractWrite(nftContract, "claimSponsorReward")
@@ -150,16 +151,19 @@ export const RewardSection = () => {
         >
           {leadership && leadership ? fromBn(leadership, 18) : 0} CRWD
         </Heading>
-        <ButtonCustom
-          typeButton={2}
-          size="md"
-          isLoading={leadershipLoading}
-          onClick={() => claimLeadershipBonus.exec({})}
-          borderRadius="lg"
-          boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
-        >
-          <Text color="yellow">{t("common.claim")}</Text>
-        </ButtonCustom>
+        <Tooltip hasArrow label={t("common.leaderShipreward")+" Disable"}>
+          <ButtonCustom
+            typeButton={2}
+            disabled={!isStartClaim}
+            size="md"
+            isLoading={leadershipLoading}
+            onClick={() => claimLeadershipBonus.exec({})}
+            borderRadius="lg"
+            boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
+          >
+            <Text color="yellow">{t("common.claim")}</Text>
+          </ButtonCustom>
+        </Tooltip>
       </Stack>
     </Flex>
   );

@@ -46,6 +46,7 @@ export const MyNftList = () => {
                   maxGrind={parseInt(fromBn(e.blockChainData.maxGrind, 1))}
                   cardId={parseInt(fromBn(e.blockChainData.cardId, 1))}
                   loadingClaim={claim.isLoading}
+                  isDisabled={false}
                   id={idx}
                 />
               </WrapItem>

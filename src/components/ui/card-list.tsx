@@ -18,6 +18,7 @@ interface CardListNFTProps {
   mintingPrice?: BigNumber;
   mintedDate?: number;
   maxGrind?: number;
+  isDisabled: boolean;
   percentage?: BigNumber;
   lastGrindAt?: BigNumber;
   loadingClaim?: boolean;
@@ -25,7 +26,7 @@ interface CardListNFTProps {
 }
 
 export const CardList: React.FC<CardListNFTProps> = props => {
-  const {id, cardId, lastGrindAt, mintingPrice, percentage } = props
+  const {id, cardId, lastGrindAt, mintingPrice, percentage, isDisabled } = props
   const { buy } = useCardList();
   const { showModalConnectWallet, loading, isAbleToTransaction } =
     useClickConnectWallet();
@@ -165,6 +166,7 @@ export const CardList: React.FC<CardListNFTProps> = props => {
                     typeButton={2}
                     size="sm"
                     borderRadius="lg"
+                    isDisabled={isDisabled}
                     boxShadow={"0px 0px 15px rgba(145, 83, 246, 0.5)"}
                     onClick={() => handleBuy()}
                     isLoading={isLoading || loading}

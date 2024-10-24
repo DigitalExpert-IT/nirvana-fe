@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { CardList } from "components/ui";
 import { Box, Spinner, Wrap, WrapItem } from "@chakra-ui/react";
-import { useCardList } from "hooks";
+import { useCardList, useStartClaim } from "hooks";
 import { prettyBn } from "utils";
 
 export const SectionNftList = () => {
   const [isLoading] = useState<boolean>(false);
   const { data } = useCardList();
+  const {isStartClaim} = useStartClaim();
 
   return (
     <>
@@ -30,6 +31,7 @@ export const SectionNftList = () => {
               title={e.id.toString()}
               price={prettyBn(e.price, 18)}
               id={Number(e.id)}
+              isDisabled={isStartClaim}
             />
           </WrapItem>
         ))}

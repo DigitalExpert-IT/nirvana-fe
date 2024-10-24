@@ -28,7 +28,7 @@ export const useGetAccount = () => {
 
             try {
                 const result = await netContract.call("getAccount", [address]);
-                const rank = await nftContract.call("getRank", [address]);
+                const rank = await netContract.call("getRank", [address]);
                 const sponsor = await nftContract.call("sponsorPoolMap", [address]);
                 const leader = await nftContract.call("getLeadershipReward", [address]);
                 const farmMatching = await nftContract.call("matchingPoolMap", [address]);

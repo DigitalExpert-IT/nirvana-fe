@@ -46,8 +46,8 @@ export const ProfileStatus = () => {
               : `${t("profile.balanceCrwd")} : ` + balances.data?.value}
           </Text>
           <Text color="gray.500" fontSize="sm" my={2}>
-            {isLarge
-              ? `${t("profile.downline")} : ` + data?.totalDownline || 0
+            {data?.totalDownline === undefined
+              ? `${t("profile.downline")} : ` + 0
               : `${t("profile.downline")} : ` + data?.totalDownline || 0}
           </Text>
         </Box>

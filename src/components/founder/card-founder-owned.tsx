@@ -45,7 +45,7 @@ export const CardFounderOwned = () => {
                   textTransform="uppercase"
                   textAlign="left"
                 >
-                  nft founder card
+                  launchpad card
                 </Text>
                 <Text color="valhallPink.700" textAlign="left">
                   Amount

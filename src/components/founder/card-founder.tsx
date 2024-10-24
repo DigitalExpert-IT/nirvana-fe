@@ -66,7 +66,7 @@ export const CardFounder = () => {
                 textTransform="uppercase"
                 textAlign={"left"}
               >
-                nft founder card
+                launchpad card
               </Text>
               <Text color="#FF00FF" textAlign="left">
                 Item Supply

@@ -2,7 +2,7 @@
   "navigation": {
     "home": "首页",
     "swap": "交换",
-    "founder": "创始人", 
+    "launchpad": "启动板", 
     "profile": "个人资料",
     "balance": "余额"
   },
@@ -29,7 +29,7 @@
   "farm": "农场",
   "farmMatching": "农场匹配",
   "farmReward": "农场匹配奖励",
-  "founder": "创始人",
+  "launchpad": "启动板",
   "gacha": "扭蛋",
   "leadershipBonus": "领导奖金",
   "level": "级别",

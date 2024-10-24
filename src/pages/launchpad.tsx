@@ -14,7 +14,7 @@ import {
 import { CardFounder, CardFounderOwned } from "components";
 import { t } from "i18next";
 
-const nftFounder = () => {
+const nftLaunchpad = () => {
   return (
     <Layout>
       <Box bgGradient={"radial(#330066, #1d1d1b)"}>
@@ -38,7 +38,7 @@ const nftFounder = () => {
               mt={"40"}
               zIndex={"1"}
               _after={{
-                content: `'${t("common.founder").toUpperCase()}'`,
+                content: `'${t("common.launchpad").toUpperCase()}'`,
                 alignSelf: "center",
                 display: "block",
                 fontWeight: "black",
@@ -52,7 +52,7 @@ const nftFounder = () => {
               }}
               mb={{ md: "2rem", base: "1rem" }}
             >
-              {t("common.founder").toUpperCase()}
+              {t("common.launchpad").toUpperCase()}
             </Heading>
 
             <Box w={{ base: "100%", md: "85vw" }}>
@@ -61,12 +61,12 @@ const nftFounder = () => {
                   <TabList>
                     <Tab>
                       <Text textTransform="uppercase" fontSize="xl">
-                        Buy NFT Founder
+                        Buy Launchpad
                       </Text>
                     </Tab>
                     <Tab>
                       <Text textTransform="uppercase" fontSize="xl">
-                        Claim NFT Founder
+                        Claim Launchpad
                       </Text>
                     </Tab>
                   </TabList>
@@ -88,4 +88,4 @@ const nftFounder = () => {
     </Layout>
   );
 };
-export default nftFounder;
+export default nftLaunchpad;

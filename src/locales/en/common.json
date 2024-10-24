@@ -2,7 +2,7 @@
   "navigation": {
     "home": "Home",
     "swap": "Swap",
-    "founder": "Founder", 
+    "launchpad": "Launchpad", 
     "profile": "Profile",
     "balance": "Balance"
   },
@@ -29,7 +29,7 @@
   "farm": "Farm",
   "farmMatching": " farm matching",
   "farmReward": "Farm Matching",
-  "founder": "founder",
+  "launchpad": "launchpad",
   "gacha": "Gacha",
   "leadershipBonus": "leadership bonus",
   "level": "Level",

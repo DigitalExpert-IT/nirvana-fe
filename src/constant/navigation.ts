@@ -27,8 +27,8 @@ export const NAVIGATION: Array<INavigation> = [
     href: "/swap"
   },
   {
-    name: "founder",
-    href: "/founder"
+    name: "launchpad",
+    href: "/launchpad"
   },
   {
     name: "profile",

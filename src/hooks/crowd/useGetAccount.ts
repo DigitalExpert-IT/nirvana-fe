@@ -7,6 +7,7 @@ import { useNftCrowdContract } from "hooks/nft";
 
 type AccountType = Awaited<ReturnType<Network["getAccount"]>>;
 type RankType = Awaited<ReturnType<Network["getRank"]>>;
+type LeaderType = Awaited<ReturnType<NFT["getLeadershipReward"]>>;
 type FarmMatchingType = Awaited<ReturnType<NFT["matchingPoolMap"]>>;
 type SponsorMap = Awaited<ReturnType<NFT["sponsorPoolMap"]>>;
 
@@ -17,6 +18,7 @@ export const useGetAccount = () => {
     const [data, setData] = useState<AccountType>();
     const [rank, setRank] = useState<RankType>()
     const [sponsor, setSponsor] = useState<SponsorMap>()
+    const [leadership, setLeadership] = useState<LeaderType>()
     const [error, setError] = useState<Error>();
     const [farmMatching, setFarmMatching] = useState<FarmMatchingType>()
 
@@ -26,13 +28,15 @@ export const useGetAccount = () => {
 
             try {
                 const result = await netContract.call("getAccount", [address]);
+                const rank = await nftContract.call("getRank", [address]);
                 const sponsor = await nftContract.call("sponsorPoolMap", [address]);
-                const rank = await nftContract.call("getMyRankReward", [address])
-                const farmMatching = await nftContract.call("matchingPoolMap", [address])
+                const leader = await nftContract.call("getLeadershipReward", [address]);
+                const farmMatching = await nftContract.call("matchingPoolMap", [address]);
                 setData(result as AccountType);
                 setRank(rank as RankType)
                 setFarmMatching(farmMatching as FarmMatchingType)
                 setSponsor(sponsor as SponsorMap)
+                setLeadership(leader)
             } catch (err) {
                 setError(err as Error);  
                 console.error(err);
@@ -41,5 +45,5 @@ export const useGetAccount = () => {
 
         checkUser();
     }, [netContract, address]);  
-    return { data, farmMatching, rank, sponsor, error };  
+    return { data, farmMatching, rank, sponsor, leadership, error };  
 };

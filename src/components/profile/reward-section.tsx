@@ -10,11 +10,11 @@ import { useNftCrowdContract } from "hooks";
 export const RewardSection = () => {
   const { t } = useTranslation();
   const {contract: nftContract} = useNftCrowdContract()
-  const {rank, sponsor, farmMatching} = useGetAccount();
+  const { leadership, sponsor, farmMatching} = useGetAccount();
   const [isMobile] = useMediaQuery("(max-width: 800px)")
   const {mutateAsync: claimFarm, isLoading: farmLoading} = useContractWrite(nftContract, "claimMatchingReward")
   const {mutateAsync: claimSponsor, isLoading: sponsorLoading} = useContractWrite(nftContract, "claimSponsorReward")
-  const {mutateAsync: claimRank, isLoading: rankLoading} = useContractWrite(nftContract, "claimRankReward")
+  const {mutateAsync: claimLeadership, isLoading: leadershipLoading} = useContractWrite(nftContract, "claimLeadershipReward")
 
   const matchingBonus = useAsyncCall(
     claimFarm,
@@ -26,8 +26,8 @@ export const RewardSection = () => {
     t("form.message.claimSuccess"),
   )
 
-  const claimRankBonus = useAsyncCall(
-    claimRank,
+  const claimLeadershipBonus = useAsyncCall(
+    claimLeadership,
     t("form.message.claimSuccess"),
   )
 
@@ -100,20 +100,20 @@ export const RewardSection = () => {
 
       <Stack textAlign="center" gap={5} p={{ base: 10 }} zIndex={1}>
         <Text fontFamily={"Protest Strike, sans-serif"} fontSize="4xl">
-          {t("common.rankReward")}
+          {t("common.sponsorReward")}
         </Text>
         <Heading
           fontWeight="bold"
           color="black"
           textShadow="2px 2px 5px rgba(78, 251, 224, 0.5), -2px -2px 5px rgba(77, 176, 250, 0.6)"  // Glowing effect
         >
-          {rank && rank ? fromBn(rank, 18) : 0} CRWD
+          {sponsor && sponsor ? fromBn(sponsor, 18) : 0} CRWD
         </Heading>
         <ButtonCustom
           typeButton={2}
           size="md"
-          isLoading={rankLoading}
-          onClick={() => claimRankBonus.exec({})}
+          isLoading={sponsorLoading}
+          onClick={() => sponsorClaim.exec({})}
           borderRadius="lg"
           boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
         >
@@ -148,13 +148,13 @@ export const RewardSection = () => {
           color="black"
           textShadow="2px 2px 5px rgba(78, 251, 224, 0.5), -2px -2px 5px rgba(77, 176, 250, 0.6)"  // Glowing effect
         >
-          {sponsor && sponsor ? fromBn(sponsor, 18) : 0} CRWD
+          {leadership && leadership ? fromBn(leadership, 18) : 0} CRWD
         </Heading>
         <ButtonCustom
           typeButton={2}
           size="md"
-          isLoading={sponsorLoading}
-          onClick={() => sponsorClaim.exec({})}
+          isLoading={leadershipLoading}
+          onClick={() => claimLeadershipBonus.exec({})}
           borderRadius="lg"
           boxShadow="0px 0px 15px rgba(145, 83, 246, 0.5)"
         >
